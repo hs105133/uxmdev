@@ -1,0 +1,38 @@
+<div id="allUsers">
+    <div class="col-sm-12">
+        <h1 class="text-center">Presentation By You</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">My all presentation</h3>
+            </div>
+            <div class="panel-body" ng-hide="currentUser">
+                <p class="text-danger">You need to <a href="#/login">Login</a> to see all presentation created by you.</p>
+            </div>     
+            <ul class="list-group" ng-show="currentUser">
+                <li class="list-group-item" ng-repeat="cover in myCovers">
+                
+                <div class="media cover">
+                    <a class="pull-left" href="#/covers/{{cover.id}}">
+                        <img class="media-object img-thumbnail" ng-src="{{ cover.coverImg }}" alt="{{ cover.title }}">
+                    </a>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-xs" title="View Comments" href="#/covers/{{ cover.id }}/comments">
+                            <span class="fa fa-comment"></span>
+                        </a>
+                    </div>                     
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="#/covers/{{ cover.id }}">{{ cover.title }}</a>
+                        </h4>
+                        <p>{{ cover.description }}</p>
+
+                    </div>
+
+                </div>
+                </li>
+            </ul>             
+        </div>
+    </div>
+</div>

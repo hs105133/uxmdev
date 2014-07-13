@@ -1,0 +1,49 @@
+<ul id="sidebar" ng-controller="navbarCtrl">
+    <li ng-class="{active: $path() == '/'}">
+        <a href="#/"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a>
+    </li>
+
+    <li class="hasChild">
+        <a href="#">
+            <i class="fa fa-plus"></i> 
+            <span>Create Presentation</span>
+            <span class="badge badge-primary">2</span>
+        </a>
+        <ul class="acc-menu">
+    <li ng-class="{active: $path() == '/create-cover'}">
+        <a href="#/create-cover"><i class="fa fa-plus-circle"></i> <span>Create Cover</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/addslide'}">
+        <a href="#/addslide"><i class="fa fa-plus-square"></i> <span>Create Slide</span></a>
+    </li>
+        </ul>
+    </li>
+    <li ng-class="{active: $path() == '/users'}">
+        <a href="#/users"><i class="fa fa-users"></i> <span>All Users</span></a>
+    </li>
+    
+<!--     <li ng-class="{active: $path() == '/login'}">
+        <a href="#/login"><i class="fa fa-sign-in"></i> <span>Login</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/signup'}">
+        <a href="#/signup"><i class="fa fa-smile-o"></i> <span>Signup</span></a>
+    </li> -->
+    <li ng-class="{active: $path() == '/myprofile'}">
+        <a href="#/myprofile"><i class="fa fa-user"></i> <span>My Profile</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/edit-profile'}">
+        <a href="#/edit-profile"><i class="fa fa-pencil"></i> <span>Edit Profile</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/manage-covers'}">
+        <a href="#/manage-covers"><i class="glyphicon glyphicon-edit"></i> <span>Manage Presentation</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/manage-images'}">
+        <a href="#/manage-images"><i class="glyphicon glyphicon-edit"></i> <span>Manage Images</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/manage-users'}">
+        <a href="#/manage-users"><i class="glyphicon glyphicon-edit"></i> <span>Manage Users</span></a>
+    </li>
+    <li ng-class="{active: $path() == '/contact'}">
+        <a href="#/contact"><i class="fa fa-location-arrow"></i> <span>Contact Us</span></a>
+    </li>
+</ul>

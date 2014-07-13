@@ -1,0 +1,53 @@
+<div class="col-sm-12" ng-cloak ng-if="!myCovers.length">
+    <p class="text-center text-info infoAlert">No covers!
+        <strong><a href="#/create-cover">Add Presentation Cover</a>
+        </strong>to create awesome presentation.</p>
+</div>
+
+<div id="userCovers" ng-cloak ng-if="myCovers.length">
+    <div class="col-sm-12">
+        <h1 class="text-center">Covers Created By You</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">CRUD with Presentation Covers</h3>
+            </div>
+
+
+
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="cover in myCovers">
+
+                    <div class="media cover">
+                        <a class="pull-left thumbnail" href="#/covers/{{cover.id}}">
+                            <img class="media-object" ng-src="{{ cover.coverImg }}" alt="{{ cover.title }}">
+                        </a>
+                        <div class="pull-right">
+                            <a class="btn btn-default btn-xs" title="View Presentation" href="#/covers/{{ cover.id }}">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                            <a class="btn btn-primary btn-xs" title="Edit Presentation Cover" href="#/covers/{{cover.id}}/edit-cover">
+                                <span class="fa fa-edit"></span>
+                            </a>
+                            <a class="btn btn-info btn-xs" title="Edit Presentation Slide" href="#/covers/{{cover.id}}/edit-slide">
+                                <span class="fa fa-pencil"></span>
+                            </a>
+                            <a class="btn btn-danger btn-xs" title="Delete Presentation" ng-click="deleteCover($index, cover.id)">
+                                <span class="fa fa-trash-o"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="#/covers/{{ cover.id }}">{{ cover.title }}</a>
+                            </h4>
+                            <p>{{ cover.description }}</p>
+
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

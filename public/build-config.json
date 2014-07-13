@@ -1,0 +1,52 @@
+{
+  "buildPath": "../../build/public/",
+  "lessSrc": "app/less/custom/main.less",
+  "jsSrc": [
+    "app/bower_components/jquery/dist/jquery.js",
+    "app/vendor/bootstrap.js",
+    "app/vendor/fileupload/angular-file-upload-html5-shim.min.js",
+    "app/bower_components/angular/angular.js",
+    "app/bower_components/angular-animate/angular-animate.js",
+    "app/bower_components/angular-resource/angular-resource.js",
+    "app/bower_components/angular-route/angular-route.js",
+    "app/vendor/fileupload/angular-file-upload.min.js",
+    "app/bower_components/angular-fullscreen/src/angular-fullscreen.js",
+    "app/vendor/jquery.bookblock.js",
+
+    "app/scripts/app.js",
+    "app/scripts/main.js",
+    "app/scripts/controllers/main.js",
+    "app/scripts/services/restService.js",
+    "app/scripts/controllers/dashboardCtrl.js",
+    "app/scripts/controllers/presentationCtrl.js",
+    "app/scripts/services/authService.js",
+    "app/scripts/controllers/adminUserCtrl.js",
+    "app/scripts/services/presentationService.js",
+    "app/scripts/controllers/createPresentationCtrl.js",
+    "app/scripts/directives/upload.js",
+    "app/scripts/controllers/addSlideCtrl.js",
+    "app/scripts/controllers/manageImagesCtrl.js",
+    "app/scripts/controllers/registerCtrl.js",
+    "app/scripts/controllers/AdminUserCtrl.js",
+    "app/scripts/controllers/MyProfileCtrl.js",
+    "app/scripts/controllers/EditUserInfo.js",
+    "app/scripts/controllers/UserCoversCtrl.js",
+    "app/scripts/controllers/EditCoverCtrl.js",
+    "app/scripts/controllers/EditSlideCtrl.js",
+    "app/scripts/controllers/commentsCtrl.js",
+    "app/scripts/controllers/AllCoversCtrl.js",
+    "app/scripts/controllers/MyCoversCtrl.js",
+    "app/scripts/controllers/UsersCtrl.js",
+    "app/scripts/controllers/ManageUsersCtrl.js",
+    "app/scripts/directives/confirmPassword.js",
+    "app/scripts/directives/selectOnClick.js",
+    "app/scripts/directives/showonhoverparent.js",
+    "app/scripts/services/AuthenticationService.js",
+    "app/scripts/services/UserService.js"
+],
+"filesToMove": [
+      "app/images/**/*.*",
+      "app/fonts/**/*.*"
+    ]
+
+}

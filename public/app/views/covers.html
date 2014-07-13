@@ -1,0 +1,35 @@
+<div id="allUsers">
+    <div class="col-sm-12">
+        <h1 class="text-center">All Presentation</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">All available presentation</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="cover in covers">
+                
+                <div class="media cover">
+                    <a class="pull-left" href="#/covers/{{cover.id}}">
+                        <img class="media-object img-thumbnail" ng-src="{{ cover.coverImg }}" alt="{{ cover.title }}">
+                    </a>
+                    <div class="pull-right">
+                        <a class="btn btn-primary btn-xs" title="View Comments" href="#/covers/{{ cover.id }}/comments">
+                            <span class="fa fa-comment"></span>
+                        </a>
+                    </div>                    
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="#/covers/{{ cover.id }}">{{ cover.title }}</a>
+                        </h4>
+                        <p>{{ cover.description }}</p>
+
+                    </div>
+
+                </div>
+                </li>
+            </ul> 
+        </div>
+    </div>
+</div>

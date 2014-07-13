@@ -1,0 +1,59 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+
+
+    <div class="navbar-brand slideMenu"><i class="fa fa-bars fa-lg white"></i> <span>Tech Mahindra</span></div>
+    
+    <ul class="nav navbar-nav pull-right" ng-hide="currentUser">
+        <li><a href="#/login">Login</a></li>
+        <li><a href="#/signup">Sign up</a></li>
+    </ul>
+    <ul ng-show="currentUser" class="nav navbar-nav pull-right" ng-controller="AdminUserCtrl">
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#/myprofile" id="userProfile">
+                <span class="uname">{{currentUser.username}}</span>
+                <span>
+                    <img class="img-circle avatar" src="{{ currentUser.profilepic }}">
+                </span>
+                <b class="caret hidden-sm-only"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="#/edit-profile">
+                        <span class="pull-left">Edit Profile</span> <i class="pull-right fa fa-pencil"></i>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="badge bg-danger pull-right">3</span>Notifications</a>
+                </li>
+                <li>
+                    <a href="docs.html">
+                        <span class="pull-left">Linkedin</span> <i class="pull-right fa fa-linkedin"></i>
+                    </a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                    <a href="" ng-click="logout()">
+                        <span class="pull-left">Logout</span> <i class="pull-right fa fa-power-off"></i>
+                    </a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <!--         <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Link</a>
+                </li>
+                <li><a href="#">Link</a>    3
+                </li>
+            </ul>
+
+
+        </div> -->
+    <!-- /.navbar-collapse -->
+</nav>

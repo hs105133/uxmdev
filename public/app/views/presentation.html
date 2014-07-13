@@ -1,0 +1,89 @@
+<div class="col-sm-12" ng-cloak ng-hide="slides.length">
+    <p class="text-center text-info infoAlert">No slides!
+        <strong><a href="#/addslide/?coverId={{ coverId }}">Add Slide</a>
+        </strong> to create awesome presentation.</p>
+</div>
+<div id="presentation" ng-cloak ng-show="slides.length" fullscreen="isFullscreen">
+    <div class="menu-panel">
+        <h3>
+            <span>Table of Contents</span> <a class="addMoreSlide" href="#/addslide/?coverId={{ coverId }}" title="Add More Slide"><i class="fa fa-plus-circle"></i></a>
+        </h3>
+        <ul id="menu-toc" class="menu-toc list-group">
+            <li ng-repeat="slide in slides | orderBy:'createdOn'" ng-class='{"menu-toc-current":$first}'>
+                <a href="#item{{$index + 1}}">{{ slide.header }}</a>
+            </li>
+        </ul>
+    </div>
+    <aside>
+        <span class="glyphicon glyphicon-th-large"></span>
+        <section class="asideSection" show-on-hover-parent>
+            <a class="btn btn-info" title="Fullscreen" id="fscreen" href="" ng-click="toggleFullScreen()">
+                <span class="glyphicon glyphicon-fullscreen"></span>
+            </a>
+            <a class="btn btn-danger comment-button" title="Comments"  href="#/covers/{{ coverId }}/comments">
+                <span class="fa fa-comment"></span>
+            </a>
+            <a class="btn btn-warning share-button" title="Share" data-toggle="modal" href="" data-target='#shareDialog'>
+                <span class="fa fa-share-alt"></span>
+            </a>
+        </section>
+
+    </aside>
+
+    <div class="bb-custom-wrapper">
+
+        <div id="bb-bookblock" class="bb-bookblock">
+            <div class="bb-item" id="item{{$index + 1}}" ng-repeat="slide in slides | orderBy:'createdOn'" on-last-repeat>
+                <div class="content">
+                    <div class="row">
+                        <h2 class="col-sm-12">{{ slide.header }}</h2>
+                    </div>
+
+                    <div ng-show="slide.src" class="center">
+                        <img ng-src="{{ slide.src }}" class="img-responsive" />
+                    </div>
+                    <p ng-show="slide.description" class="description">{{ slide.description}}</p>
+
+                    <div ng-show="slide.dl" ng-repeat="dlrow in slide.dl" class="dl">
+                        <h3>{{ dlrow.dt }}</h3>
+                        <p>{{ dlrow.dd }}</p>
+                    </div>
+
+                    <div ng-show="slide.table">
+                        <table class="table">
+                            <tr class="active">
+                                <th ng-repeat="thval in slide.table.headers">{{ thval }}</th>
+                            </tr>
+                            <tr ng-repeat="tdarr in slide.table.rows">
+                                <td ng-repeat="tdval in tdarr">{{ tdval }}</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div ng-show="slide.bullets" class="bullets">
+                        <ul>
+                            <li ng-repeat="bulletpoint in slide.bullets">{{ bulletpoint }}</li>
+                        </ul>
+                    </div>
+
+                    <div ng-show="slide.imageList" ng-repeat="item in slide.imageList" class="imageList">
+                        <p>
+                            <img align="absmiddle" ng-src="{{ item.imgUrl }}">
+                            <span>{{ item.imgDesc }}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav>
+            <span id="bb-nav-prev">&larr;</span>
+            <span id="bb-nav-next">&rarr;</span>
+
+        </nav>
+
+        <span id="tblcontents" class="menu-button">Table of Contents</span>
+    </div>
+</div>
+
+

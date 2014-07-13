@@ -1,0 +1,81 @@
+<div id="userComments">
+    <div class="col-sm-12">
+        <h1 class="text-center">User Comments</h1>
+    </div>
+    <div class="col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Comments posted for this presentation</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item">
+
+                    <div class="media cover">
+                        <a class="pull-left thumbnail" href="#/covers/{{cover.id}}">
+                            <img class="media-object" ng-src="{{ cover.coverImg }}" alt="{{ cover.title }}">
+                        </a>
+                        <div class="pull-right">
+                            <a class="btn btn-default btn-xs" title="View Presentation" href="#/covers/{{ cover.id }}">
+                                <span class="fa fa-eye"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="#/covers/{{ cover.id }}">{{ cover.title }}</a>
+                            </h4>
+                            <p>{{ cover.description }}</p>
+
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+
+            <ul class="list-group comments">
+                <li class="list-group-item">
+
+                    <div class="media cover" ng-repeat="obj in comments">
+                        <a class="pull-left" href="#/users/{{obj.userId}}">
+                            <img class="media-object img-circle" ng-src="{{ obj.userImg }}" alt="{{ obj.userName }}">
+                        </a>
+                        <div class="media-body">
+                            <div class="panel panel-default commentBox">
+                                <div class="panel-heading">
+                                    <strong>
+                                        <a class="author" href="#/users/{{obj.userId}}">{{obj.userName }}</a>
+                                    </strong>
+
+                                    commented on
+
+                                    <span class="text-muted">
+                                        <small><i>{{ obj.commentedOn | date }}</i></small>
+                                    </span>
+
+
+                                </div>
+                                <div class="panel-body">
+                                    <p>{{ obj.comment }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+            
+            <div class="well commentWell">
+                <p class="text-danger text-center" ng-hide="currentUser">You need to <a href="#/login">Login</a> to post comment</p>
+
+                <form method="POST" role="form" novalidate name="commentForm" ng-submit="addComment()" ng-show="currentUser">
+            
+                <div class="form-group" ng-class="{ 'has-error' : commentForm.comment.$invalid && !commentForm.comment.$pristine }">
+                    <label for="comment" class="sr-only">Add some comment</label>
+                    <textarea name="comment" ng-model="comment" class="form-control" required></textarea>
+                   
+                </div>
+                 <button type="submit" ng-disabled="commentForm.$invalid" class="btn btn-default">Add Comment</button>
+            </form>                
+            </div>
+        </div>
+    </div>
+</div>

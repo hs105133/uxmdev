@@ -1,0 +1,224 @@
+<div class="col-sm-12" ng-cloak ng-hide="slides.length">
+    <p class="text-center text-info infoAlert">No slides!
+        <strong><a href="#/addslide/?coverId={{ coverId }}">Add Slide</a>
+        </strong>to create awesome presentation.</p>
+</div>
+<div class="col-sm-8 col-sm-offset-2" ng-controller="navbarCtrl" ng-show="slides.length">
+
+    <div class="slide-header text-center">
+
+        <div id="status-buttons" class="text-center">
+            <a ng-repeat="slide in slides | orderBy:'createdOn'" href="#/covers/{{ coverId }}/edit-slide/{{ slide.id }}" ng-class="{active: $path() == '/covers/{{ coverId }}/edit-slide/{{ slide.id }}'}">
+                <span>{{ $index + 1 }}</span>
+            </a>
+        </div>
+        <div class="alert alert-dismissable alert-success" ng-class="{flash: flashMsg}">
+            <button class="close" type="button" ng-click="closeAlert()">×</button>
+            You successfully Updated slide
+            <span class="badge">{{flashMsg}}</span>
+        </div>
+
+    </div>
+
+    <form id="updateSlidesForm" name="updateSlidesForm" novalidate method="post">
+        <div ng-show="$path() == '/covers/{{ coverId }}/edit-slide/{{ slide.id }}' " id="item{{$index + 1}}" ng-repeat="(slideKey, slide) in slides | orderBy:'createdOn'">
+
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#slideWrapper" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Basic Information</legend>
+                <div id="slideWrapper" class="collapse in">
+
+                    <div class='form-group'>
+                        <label for="header">Edit Header</label>
+                        <input class="form-control" id="header" name="header" ng-model="slide.header" type="text" placeholder="Edit header for presentation" />
+                    </div>
+                    <div class='form-group'>
+                        <label for="header">Edit Description</label>
+                        <textarea class="form-control" id="description" name="description" ng-model="slide.description" placeholder="Edit description for presentation"></textarea>
+                    </div>
+                    <div class='form-group'>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <img ng-src="{{slide.src}}" class="img-responsive" ng-model="slide.src" style="max-width:120px" />
+                            </div>
+                            <div class="col-sm-4">
+                                <label for="coverimage">Change Image</label>
+                                <input id="src" name="src" ng-file-select="onFileSelect($files, $index)" type="file" />
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="bs-component" ng-show="selectedFiles != null" ng-repeat="f in selectedFiles">
+                                    <div class="progress active" ng-show="progress[$index] >= 0">
+                                        <div class="progress-bar" style="width:{{progress[$index]}}%">{{progress[$index]}}%</div>
+                                    </div>
+                                </div>
+                                <div class="drop-box" ng-hide="selectedFiles" ng-file-drop="onFileSelect($files, $index);" ng-file-drag-over-class="dragover">or drop file here</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#dl" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Edit Description List (sub header/description)
+
+                </legend>
+                <div id="dl" class="collapse" ng-class="{in: slide.dl.length}">
+                    <div ng-repeat="item in slide.dl">
+                        <div class='form-group'>
+                            <label for="subheader">Edit Sub Header {{$index + 1 }}</label>
+                            <input class="form-control" id="subheader" ng-model="item.dt" type="text" placeholder="Edit subheader for presentation" />
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="subdetail">Edit Sub Detail {{$index + 1}}</label>
+                            <textarea class="form-control" id="subdetail" ng-model="item.dd" placeholder="Edit subdetail for presentation"></textarea>
+                        </div>
+
+
+                    </div>
+                    <div class="centerBtn">
+                        <button ng-show="removeDLFlag" type="button" class="btn btn-danger" ng-click="removeDL($index)">
+                            <span class="fa fa-minus"></span>
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="addDL($index, slide)">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </div>
+                </div>
+
+
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#imgList" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Update Image List</legend>
+                <div id="imgList" class="collapse" ng-class="{in: slide.imageList.length}">
+                    <div ng-repeat="(key, item) in slide.imageList">
+                        <div class='form-group'>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <img ng-src="{{item.imgUrl}}" class="img-responsive" style="max-width:120px" ng-model="item.imgUrl" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <label for="subheader">Change Image {{ $index + 1 }}</label>
+                                    <input id="imageUrl" ng-model="item.imgUrl" type="file" ng-file-select="onImgListFileSelect($files, slideKey, key)" type="file" />
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="bs-component" ng-show="selectedFiles1 != null" ng-repeat="f in selectedFiles1">
+                                        <div class="progress active" ng-show="item.progress1[$index] >= 0">
+                                            <div class="progress-bar" style="width:{{item.progress1[$index]}}%">{{item.progress1[$index]}}%</div>
+                                        </div>
+                                    </div>
+                                    <div class="drop-box" ng-hide="selectedFiles1" ng-file-drop="onImgListFileSelect($files, slideKey, key);" ng-file-drag-over-class="dragover">or drop file here</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='form-group'>
+                            <label for="imageDesc">Edit description {{ $index + 1 }}</label>
+                            <textarea class="form-control" id="imageDesc" ng-model="item.imgDesc" placeholder="Add imageDesc for presentation"></textarea>
+                        </div>
+                    </div>
+                    <div class="centerBtn">
+                        <button ng-show="removeImageListFlag" type="button" class="btn btn-danger" ng-click="removeImageList($index)">
+                            <span class="fa fa-minus"></span>
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="addImageList($index)">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </div>
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#tableToggle" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Edit Table Header</legend>
+                <div id="tableToggle" class="collapse">
+                    <div ng-repeat="(i, item) in slide.table.headers track by $index">
+                        <div class="col-sm-4">
+                            <div class='form-group'>
+                                <input id="col{{$index+1}}" ng-model="slide.table.headers[i]" type="text" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="centerBtn">
+                        <button ng-show="removeTableHeaderFlag" type="button" class="btn btn-danger" ng-click="removeTableHeader($index)">
+                            <span class="fa fa-minus"></span>
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="addTableHeader($index)">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#tableFieldsToggle" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Edit Table Fields</legend>
+                <div id="tableFieldsToggle" class="collapse">
+                    <div ng-repeat="row in slide.table.rows track by $index">
+                        <h4 class="col-sm-12">Record {{ $index + 1}}</h4>
+                        <div ng-repeat="(i, cell) in row track by $index">
+                            <div class="col-sm-4">
+                                <div class='form-group'>
+                                    <label for="fld{{$index+1}}">Field {{$index+1}}</label>
+                                    <input id="fld{{$index+1}}" ng-model="row[i]" type="text" class="form-control" placeholder="Add field {{$index+1}}" required />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="centerBtn">
+                        <button ng-show="removeTableCellFlag" type="button" class="btn btn-danger" ng-click="removeTableRecord($index)">
+                            <span class="fa fa-minus"></span>
+                        </button>
+                        <button type="button" class="btn btn-success" ng-click="addTableRecord($index)">
+                            <span class="fa fa-plus"></span>
+                        </button>
+                    </div>
+
+
+                </div>
+            </fieldset>
+            <fieldset>
+                <legend>
+                    <a data-toggle="collapse" data-target="#bulletList" class="btn btn-info">
+                        <span class="fa fa-plus"></span>
+                    </a>
+                    Edit Bullet List</legend>
+                <div id="bulletList" class="collapse">
+                    <div class="col-sm-12">
+                        <div class='form-group'>
+                            <input id="bulletItem{{$index+1}}" ng-model="slide.bullets" ng-list type="text" class="form-control" />
+                            <p class="help-block">Seperated with "," for ex- item1, item2, item3</p>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group formFooter">
+                <button ng-disabled="updateSlidesForm.$invalid" class="btn btn-default" ng-click="updateSlide($index, slide)"><i class="fa fa-save"></i> Update Slide</button>
+                <button ng-disabled="updateSlidesForm.$invalid" class="btn btn-danger" ng-click="deleteSlide($index, slide)"><i class="fa fa-trash-o"></i> Delete Slide</button>
+            </div>
+        </div>
+    </form>
+
+</div>

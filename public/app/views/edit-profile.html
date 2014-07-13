@@ -1,0 +1,107 @@
+<div id="myProfile">
+    <div class="col-sm-12">
+        <h1>Edit Profile</h1>
+    </div>
+
+    <aside class="profile-nav col-sm-4 col-md-3">
+        <section class="panel">
+            <div class="user-heading round">
+                <div class="center-block drop-box" ng-file-drop="onFileSelect($files);" ng-file-drag-over-class="dragover">
+                    <img alt="" class="img-responsive" ng-src="{{formData.profilepic}}">
+                    <input id="profilepic" name="profilepic" ng-file-select="onFileSelect($files)" type="file" /> 
+                </div>
+                <div class="bs-component" ng-show="selectedFiles != null" ng-repeat="f in selectedFiles">
+                    <div class="progress active" ng-show="progress[$index] >= 0">
+                        <div class="progress-bar" style="width:{{progress[$index]}}%">{{progress[$index]}}%</div>
+                    </div>
+                </div>
+                <h3>{{ formData.name || formData.username }}</h3>
+            </div>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li>
+                    <a href="#/myprofile"> <i class="fa fa-user"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="profile-activity.html"> <i class="fa fa-calendar"></i> Recent Activity
+                        <span class="label label-danger pull-right r-activity">9</span>
+                    </a>
+                </li>
+            </ul>
+
+        </section>
+    </aside>
+    <section class="profile-info col-sm-8 col-md-9">
+        <form ng-submit="updateUserInfo()" method="post" name="editForm" novalidate>
+            <fieldset>
+                <legend><i class="fa fa-briefcase"></i> Personal Information</legend>
+                <div class='row'>
+                    <div class='col-sm-6  col-md-4'>
+                        <div class='form-group'>
+                            <label for="username">Username</label>
+                            <input class="form-control" id="username" ng-model="formData.username" disabled name="username" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6  col-md-4'>
+                        <div class='form-group'>
+                            <label for="name">Name</label>
+                            <input class="form-control" id="name" name="name" ng-model="formData.name" placeholder="Display Name" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-md-4'>
+                        <div class='form-group'>
+                            <label for="dob">Birthday</label>
+                            <input class="form-control" id="dob" name="dob" ng-model="formData.dob" placeholder="Date of Birth" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6  col-md-4'>
+                        <div class='form-group'>
+                            <label for="mobile">Mobile</label>
+                            <input class="form-control" id="mobile" name="mobile" ng-model="formData.mobile" placeholder="Mobile No Ex. 7799111008" type="number" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6  col-md-4'>
+                        <div class='form-group'>
+                            <label for="email">Email</label>
+                            <input class="form-control" id="email" name="email" ng-model="formData.email" placeholder="Your Email Address" type="email" />
+                        </div>
+                    </div>
+                </div>
+
+            </fieldset>
+
+            <fieldset class="mTop">
+                <legend><i class="fa fa-info-circle"></i> General Information</legend>
+                <div class='row'>
+                    <div class='col-sm-6 col-md-4'>
+                        <div class='form-group'>
+                            <label for="position">Position</label>
+                            <input class="form-control" id="position" name="position" ng-model="formData.position" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-md-4'>
+                        <div class='form-group'>
+                            <label for="company">Company Name</label>
+                            <input class="form-control" id="company" name="company" ng-model="formData.company" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-6 col-md-4'>
+                        <div class='form-group'>
+                            <label for="country">Country</label>
+                            <input class="form-control" id="country" name="country" ng-model="formData.country" type="text" />
+                        </div>
+                    </div>
+                    <div class='col-sm-12'>
+                        <div class='form-group'>
+                            <label for="aboutme">About Me</label>
+                            <textarea class="form-control" id="aboutme" name="aboutme" ng-model="formData.aboutme"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="form-group formFooter">
+                <button type="submit" ng-disabled="editForm.$invalid" class="btn btn-default">Update My Info</button>
+            </div>
+        </form>
+    </section>
+</div>

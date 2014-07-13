@@ -1,0 +1,17 @@
+{
+  "name": "UXM",
+  "version": "0.0.0",
+  "description": "Awesome presentation app",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "~3.8.6",
+    "gulp-concat": "*",
+    "gulp-minify-html": "*",
+    "gulp-cssmin": "*",
+    "gulp-rename": "*",
+    "gulp-jshint": "*",
+    "gulp-html-replace": "*",
+    "gulp-less": "*"
+  },
+  "author": "Hemant"
+}

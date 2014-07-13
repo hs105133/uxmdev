@@ -1,0 +1,106 @@
+<!doctype html>
+<html ng-app="techmApp">
+
+<head>
+
+    <meta charset="utf-8">
+    
+    <meta name="description" content="Amazing presentation app by UXM">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link rel="author" href="https://github.com/hemantajax">
+    <link rel="icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="http://angularjs.org/favicon.ico" type="image/x-icon">
+
+    <!-- build:css -->
+    <link rel="stylesheet" href="css/main.css">   
+    <!-- endbuild -->
+    <title ng-bind="'Techm - ' + pageTitle">Techm - Presentation</title>
+
+</head>
+
+<body>
+    <div ng-include="'views/partials/navbar.html'"></div>
+
+    <div id="site-wrapper">
+        <div id="site-canvas" class="ease">
+           <div id="site-menu" ng-include="'views/partials/sidebar.html'">
+           </div>
+
+           <div id="mainContent" ng-view class="slide-animation"></div>
+        </div>
+    </div>
+    <div ng-show="isViewLoading" id="loading"> loading the awesome... </div>
+
+    <div class="modal fade" id="shareDialog">
+   
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                        <h3>Link</h3>
+                        <input type="url" name="url" readonly="readonly" class="form-control" value="{{ location.href  }}" select-on-click>
+
+                        <h3>Embed</h3>
+                        <textarea name="output" readonly="readonly" class="form-control" select-on-click>&lt;iframe src="{{ location.href  }}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+    <!-- build:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="vendor/bootstrap.js"></script>
+    <script src="vendor/fileupload/angular-file-upload-html5-shim.min.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="vendor/fileupload/angular-file-upload.min.js"></script>
+    <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
+    <script src="vendor/jquery.bookblock.js"></script>
+
+    <script src="scripts/app.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/restService.js"></script>
+    <script src="scripts/controllers/dashboardCtrl.js"></script>
+    <script src="scripts/controllers/presentationCtrl.js"></script>
+    <script src="scripts/services/authService.js"></script>
+    <script src="scripts/controllers/adminUserCtrl.js"></script>
+    <script src="scripts/services/presentationService.js"></script>
+    <script src="scripts/controllers/createPresentationCtrl.js"></script>
+     <script src="scripts/directives/upload.js"></script>
+     <script src="scripts/controllers/addSlideCtrl.js"></script>
+     <script src="scripts/controllers/manageImagesCtrl.js"></script>
+     <script src="scripts/controllers/registerCtrl.js"></script>
+     <script src="scripts/controllers/AdminUserCtrl.js"></script>
+     <script src="scripts/controllers/ApplicationController.js"></script>
+     <script src="scripts/controllers/MyProfileCtrl.js"></script>
+     <script src="scripts/controllers/EditUserInfo.js"></script>
+     <script src="scripts/controllers/UserCoversCtrl.js"></script>
+     <script src="scripts/controllers/EditCoverCtrl.js"></script>
+     <script src="scripts/controllers/EditSlideCtrl.js"></script>
+     <script src="scripts/controllers/commentsCtrl.js"></script>
+     <script src="scripts/controllers/AllCoversCtrl.js"></script>
+     <script src="scripts/controllers/MyCoversCtrl.js"></script>
+     <script src="scripts/controllers/UsersCtrl.js"></script>
+     <script src="scripts/controllers/ManageUsersCtrl.js"></script>
+     <script src="scripts/directives/confirmPassword.js"></script>
+     <script src="scripts/directives/selectOnClick.js"></script>
+     <script src="scripts/directives/showonhoverparent.js"></script>
+     <script src="scripts/services/AuthenticationService.js"></script>
+     <script src="scripts/services/UserService.js"></script>
+     <!-- endbuild -->
+     
+     </body>
+     </html>
+     
+     
+     
+     

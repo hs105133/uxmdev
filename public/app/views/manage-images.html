@@ -1,0 +1,31 @@
+<div id="manageImages">
+    <div class="col-sm-12">
+        <h1 class="text-center">Manage Images</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">For Now you just able to delete images</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="image in images">
+                
+                <div class="media cover">
+                    <a class="pull-left thumbnail" href="#/covers/{{cover.id}}">
+                        <img class="media-object" ng-src="../store/images/{{ image.filename }}">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="#/upload/{{ image.id }}">{{ image.filename }}</a>
+                            <span class="close" ng-click="deleteImage($index, image.id)">&times;</span>
+                        </h4>
+                        <p><em>Created On:</em> {{ image.creationDate | date }}</p>
+
+                    </div>
+
+                </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

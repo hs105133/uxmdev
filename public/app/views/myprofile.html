@@ -1,0 +1,77 @@
+<div id="myProfile">
+    <div class="col-sm-12">
+        <h1><span ng-show="otherUser">{{ userInfo.name || userInfo.username }}</span><span ng-show="!otherUser">My </span> Profile</h1>
+    </div>
+    <aside class="profile-nav col-sm-4 col-md-3">
+        <section class="panel">
+            <div class="user-heading round">
+                <div class="center-block">
+                    <img alt="" class="img-responsive" ng-src="{{userInfo.profilepic}}">
+                </div>
+                <h3>{{ userInfo.name ||  userInfo.username }}</h3>
+            </div>
+
+            <ul class="nav nav-pills nav-stacked">
+                <li class="active">
+                    <a href="profile.html"> <i class="fa fa-user"></i> Profile</a>
+                </li>
+                <li>
+                    <a href="profile-activity.html"> <i class="fa fa-calendar"></i> Recent Activity
+                        <span class="label label-danger pull-right r-activity">9</span>
+                    </a>
+                </li>
+                <li ng-hide="otherUser">
+                    <a href="#/edit-profile"> <i class="fa fa-edit"></i> Edit profile</a>
+                </li>
+            </ul>
+
+        </section>
+    </aside>
+    <aside class="profile-info col-sm-8 col-md-9">
+
+                <h4 class="hl"><i class="fa fa-info-circle"></i> General Information</h4>
+                <table class="table">
+                    <tbody>
+                        <tr ng-if="userInfo.username">
+                            <td class="text-muted">Username</td>
+                            <td>{{ userInfo.username }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.name">
+                            <td class="text-muted">Name</td>
+                            <td>{{ userInfo.name }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.dob">
+                            <td class="text-muted">Birthday</td>
+                            <td>{{ userInfo.dob }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.email">
+                            <td class="text-muted">Email</td>
+                            <td>{{ userInfo.email }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.mobile">
+                            <td class="text-muted">Mobile</td>
+                            <td>{{ userInfo.mobile }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.position">
+                            <td class="text-muted">Position</td>
+                            <td>{{ userInfo.position }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.company">
+                            <td class="text-muted">Company Name</td>
+                            <td>{{ userInfo.company }}</td>
+                        </tr>
+                        <tr ng-if="userInfo.country">
+                            <td class="text-muted">Country</td>
+                            <td>{{ userInfo.country }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div ng-if="userInfo.aboutme">
+                    <h4><i class="fa fa-user"></i> About Me</h4>
+                    <p>{{ userInfo.aboutme }}</p>                    
+                </div>
+
+
+    </aside>
+</div>

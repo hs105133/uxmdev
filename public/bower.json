@@ -1,0 +1,33 @@
+{
+  "name": "techm",
+  "version": "0.1.0",
+  "description": "Yet another amazing AngularJS app",
+  "keywords": [
+    "angular"
+  ],
+  "homepage": "https://github.com/mgcrea/techm",
+  "bugs": "https://github.com/mgcrea/techm/issues",
+  "author": {
+    "name": "Olivier Louvignes",
+    "email": "olivier@mg-crea.com",
+    "url": "https://github.com/mgcrea"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mgcrea/techm.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "font-awesome": "4.1.0",
+    "angular": "1.2.19",
+    "angular-animate": "*",
+    "angular-resource": "*",
+    "angular-route": "*",
+    "angular-fullscreen": "*"
+  }
+}

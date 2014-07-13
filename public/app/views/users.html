@@ -1,0 +1,28 @@
+<div id="allUsers">
+    <div class="col-sm-12">
+        <h1 class="text-center">All Available Users</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title">Registered Users</h3>
+            </div>
+            <div class="panel-body">
+                <div class="media" ng-repeat="user in users">
+                    <a class="pull-left thumbnail" href="#/users/{{user.id}}">
+                        <img class="media-object" ng-src="{{user.profilepic}}" alt="{{user.username}}">
+                    </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">
+                            <a href="#/users/{{user.id}}">{{user.username}}</a>
+                            <span class="pull-right label label-info">{{user.role}}</span>
+                        </h4>
+                        <p>{{user.aboutme}}</p>
+
+                    </div>
+
+                </div>
+            </div>  
+        </div>
+    </div>
+</div>
