@@ -1,0 +1,13 @@
+{
+	"type": "Collection",
+	"properties": {
+		"presentation": {
+			"name": "presentation",
+			"type": "object",
+			"typeLabel": "object",
+			"required": true,
+			"id": "presentation",
+			"order": 0
+		}
+	}
+}

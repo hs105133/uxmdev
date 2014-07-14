@@ -1,0 +1,85 @@
+{
+	"type": "Collection",
+	"properties": {
+		"header": {
+			"name": "header",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "header",
+			"order": 0
+		},
+		"src": {
+			"name": "src",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "src",
+			"order": 1
+		},
+		"description": {
+			"name": "description",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "description",
+			"order": 2
+		},
+		"dl": {
+			"name": "dl",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "dl",
+			"order": 3
+		},
+		"imageList": {
+			"name": "imageList",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "imageList",
+			"order": 4
+		},
+		"table": {
+			"name": "table",
+			"type": "object",
+			"typeLabel": "object",
+			"required": false,
+			"id": "table",
+			"order": 5
+		},
+		"bullets": {
+			"name": "bullets",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "bullets",
+			"order": 6
+		},
+		"subheader": {
+			"name": "subheader",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "subheader",
+			"order": 7
+		},
+		"subdetail": {
+			"name": "subdetail",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "subdetail",
+			"order": 8
+		},
+		"coverId": {
+			"name": "coverId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "coverId",
+			"order": 9
+		}
+	}
+}

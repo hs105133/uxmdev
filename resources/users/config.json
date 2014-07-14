@@ -1,0 +1,85 @@
+{
+	"type": "UserCollection",
+	"properties": {
+		"email": {
+			"name": "email",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "email",
+			"order": 0
+		},
+		"aboutme": {
+			"name": "aboutme",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "aboutme",
+			"order": 1
+		},
+		"profilepic": {
+			"name": "profilepic",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "profilepic",
+			"order": 2
+		},
+		"role": {
+			"name": "role",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "role",
+			"order": 3
+		},
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "name",
+			"order": 4
+		},
+		"dob": {
+			"name": "dob",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "dob",
+			"order": 5
+		},
+		"mobile": {
+			"name": "mobile",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "mobile",
+			"order": 6
+		},
+		"position": {
+			"name": "position",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "position",
+			"order": 7
+		},
+		"company": {
+			"name": "company",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "company",
+			"order": 8
+		},
+		"country": {
+			"name": "country",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "country",
+			"order": 9
+		}
+	}
+}

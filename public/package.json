@@ -4,14 +4,15 @@
   "description": "Awesome presentation app",
   "dependencies": {},
   "devDependencies": {
+    "bower": "^1.3.8",
     "gulp": "~3.8.6",
     "gulp-concat": "*",
-    "gulp-minify-html": "*",
     "gulp-cssmin": "*",
-    "gulp-rename": "*",
-    "gulp-jshint": "*",
     "gulp-html-replace": "*",
-    "gulp-less": "*"
+    "gulp-jshint": "*",
+    "gulp-less": "*",
+    "gulp-minify-html": "*",
+    "gulp-rename": "*"
   },
   "author": "Hemant"
 }

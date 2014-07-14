@@ -1,4 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light+Two|Open+Sans);
 /*! normalize.css v3.0.1 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
@@ -7731,6 +7730,18 @@ button.close {
 }
 .fa-bomb:before {
   content: "\f1e2";
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Open Sans'), local('OpenSans'), url(fonts/opensans.woff) format('woff');
+}
+@font-face {
+  font-family: 'Shadows Into Light Two';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url(fonts/shadowsintolighttwo.woff) format('woff');
 }
 .navbar-inverse .badge {
   background-color: #fff;

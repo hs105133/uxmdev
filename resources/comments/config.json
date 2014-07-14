@@ -1,0 +1,53 @@
+{
+	"type": "Collection",
+	"properties": {
+		"comment": {
+			"name": "comment",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "comment",
+			"order": 0
+		},
+		"coverId": {
+			"name": "coverId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "coverId",
+			"order": 1
+		},
+		"userId": {
+			"name": "userId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "userId",
+			"order": 2
+		},
+		"userName": {
+			"name": "userName",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "userName",
+			"order": 3
+		},
+		"userImg": {
+			"name": "userImg",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "userImg",
+			"order": 4
+		},
+		"commentedOn": {
+			"name": "commentedOn",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "commentedOn",
+			"order": 5
+		}
+	}
+}
