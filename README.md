@@ -54,8 +54,6 @@ http://localhost:5000/app
 
 ## Developer setup
 
-=======================
-
 1. run server from terminal `node production.js`, now you able to see application running from here `http://localhost:5000/app`
 
 2. go inside `public` folder and run `gulp watch`, keep in mind all client side code resides in `public` folder.
@@ -68,7 +66,7 @@ http://localhost:5000/app
     
     all css changes shuuld be done inside `public / app / less / custom` folder
     
-    ** JS changes **
+    **JS changes**
     
     - install all 3rd party libraries using `bower install xxx --save`
     - if plugin you want to install not available through `bower` then please put that inside `vendor` folder.
