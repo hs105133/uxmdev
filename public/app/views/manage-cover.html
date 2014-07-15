@@ -17,7 +17,7 @@
 
 
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="cover in myCovers">
+                <li class="list-group-item" ng-repeat="cover in myCovers | orderBy:'-createdOn'">
 
                     <div class="media cover">
                         <a class="pull-left thumbnail" href="#/covers/{{cover.id}}">

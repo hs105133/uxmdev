@@ -15,7 +15,7 @@
                 <p class="text-danger">You need to <a href="#/login">Login</a> to see all presentation created by you.</p>
             </div>     
             <ul class="list-group" ng-show="currentUser">
-                <li class="list-group-item" ng-repeat="cover in myCovers">
+                <li class="list-group-item" ng-repeat="cover in myCovers | orderBy:'-createdOn'">
                 
                 <div class="media cover">
                     <a class="pull-left" href="#/covers/{{cover.id}}">

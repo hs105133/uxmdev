@@ -80,6 +80,14 @@
 			"required": false,
 			"id": "coverId",
 			"order": 9
+		},
+		"createdOn": {
+			"name": "createdOn",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "createdOn",
+			"order": 10
 		}
 	}
 }
