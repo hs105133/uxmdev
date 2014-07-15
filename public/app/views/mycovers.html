@@ -1,4 +1,8 @@
-<div id="allUsers">
+
+   <div class="col-sm-12" ng-if="!myCovers.length">
+    <p class="text-center text-info infoAlert">No presentation created by you so far,  <a class="alert-link" href="#/create-cover"> Create Presentation</a> now.
+</div>
+    <div id="allUsers" ng-if="myCovers.length">
     <div class="col-sm-12">
         <h1 class="text-center">Presentation By You</h1>
     </div>
