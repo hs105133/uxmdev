@@ -3,7 +3,7 @@ UXM Presentation
 
 A super simple presentation application that will help you to create, update, delete, share presentation online.  
 
-![Presentation Dashboard](http://uxm.herokuapp.com/store/images/home-cover.bmp)
+![Presentation Dashboard](https://raw.githubusercontent.com/hs105133/uxmdev/master/public/app/images/dashboard-cover.png)
 
 ## Features
 
