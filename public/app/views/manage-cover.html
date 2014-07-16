@@ -1,9 +1,10 @@
-<div class="col-sm-12" ng-cloak ng-if="!myCovers.length">
-    <p class="text-center text-info infoAlert">No covers!
-        <strong><a href="#/create-cover">Add Presentation Cover</a>
-        </strong>to create awesome presentation.</p>
+<div class="col-sm-6 col-sm-offset-3 infoAlert" ng-if="!myCovers.length">
+    <div class="alert flash alert-info text-center">
+         No covers!
+        <strong><a href="#/create-cover" class="alert-link">Add Presentation Cover</a>
+        </strong>to create awesome presentation.
+    </div>
 </div>
-
 <div id="userCovers" ng-cloak ng-if="myCovers.length">
     <div class="col-sm-12">
         <h1 class="text-center">Covers Created By You</h1>
@@ -13,8 +14,6 @@
             <div class="panel-heading">
                 <h3 class="panel-title">CRUD with Presentation Covers</h3>
             </div>
-
-
 
             <ul class="list-group">
                 <li class="list-group-item" ng-repeat="cover in myCovers | orderBy:'-createdOn'">

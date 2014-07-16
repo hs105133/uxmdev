@@ -96,7 +96,6 @@ Project is ready for production by just running `gulp` from terminal, it will cr
 ```shell
 gulp
 ```
-
 ## Useful Resources
 
 1. Dashboard Page -  [dashboard](http://uxm.herokuapp.com/#/)

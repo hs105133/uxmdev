@@ -1,6 +1,7 @@
-
-   <div class="col-sm-12" ng-if="!myCovers.length">
-    <p class="text-center text-info infoAlert">No presentation created by you so far,  <a class="alert-link" href="#/create-cover"> Create Presentation</a> now.
+<div class="col-sm-6 col-sm-offset-3 infoAlert" ng-if="!myCovers.length">
+    <div class="alert flash alert-info text-center">
+         No presentation created by you so far,  <a class="alert-link" href="#/create-cover"> Create Presentation</a> now.
+    </div>
 </div>
     <div id="allUsers" ng-if="myCovers.length">
     <div class="col-sm-12">
