@@ -7,9 +7,18 @@ A super simple presentation application that will help you to create, update, de
 
 ## Features
 
+    * Single Page Application
+    * Node.js backend with Express and MongoDB
+    * AngularJS frontend
+    * Modular Angular components (controllers, services)
+    * Good application structure so our app can grow
+    * Bower for client side dependency management
+    * Gulp for handling build process
+    * Node npm as package manager for client, server both. 
+    
 It's a single page application ( SPA ) that is based on MEAN stack.
 
-#### Client Side
+#### Client Side ( Angular JS )
 
 Client side requires REST API in form of JSON response from back-end.
 
@@ -17,7 +26,7 @@ Client side requires REST API in form of JSON response from back-end.
 2. Bootstrap 
 3. jQuery ( very little use, for bootstrap dialog, tooltip etc)
 
-#### Server Side 
+#### Server Side (Node, MongoDB, Express)
 
 Back-end is responsible for providing RESTFUL API's nothing more than that, 
 
