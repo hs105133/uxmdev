@@ -107,5 +107,6 @@ gulp
 7. Registered user have ton of features...
     - they can CRUD their profiles
     - they can do CRUD with presentation 
+8. Admin users able to manage other users, images etc.    
 
     
