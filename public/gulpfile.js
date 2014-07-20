@@ -1,6 +1,9 @@
 var gulp = require("gulp"),
     config = require('./build-config.json'),
     concat = require('gulp-concat'),
+    ngmin = require('gulp-ngmin'),
+    uglify = require('gulp-uglify'),
+
     minifyHTML = require('gulp-minify-html'),
     cssmin = require('gulp-cssmin'),
     rename = require('gulp-rename'),
@@ -16,7 +19,7 @@ gulp.task('htmlreplace', function() {
   gulp.src('app/index.html')
     .pipe(htmlreplace({
         'css': 'css/main.min.css',
-        'js': 'js/all.js'
+        'js': 'js/all.min.js'
     }))
     .pipe(gulp.dest(buildPath))
     .pipe(minifyHTML({quotes: true, empty:true, spare: true }))
@@ -45,14 +48,32 @@ gulp.task('lint', function() {
     .pipe(jshint.reporter('default'));
 });
 
-gulp.task('concatjs', function() {
-    
 
+gulp.task('concatjs', function() {
     gulp.src(config.jsSrc)
-        .pipe(concat('all.js'))
+        .pipe(concat('all.min.js'))
+        .pipe(gulp.dest(buildPath+'js/'))
+        .pipe(ngmin())
+        .pipe(gulp.dest(buildPath+'js/'))
+        .pipe(uglify())
         .pipe(gulp.dest(buildPath+'js/'));
+
     gulp.run('lint');
 });
+
+
+// gulp.task('ngmin', ["concatjs"], function () {
+//     gulp.src(buildPath+'js/all.js')
+//         .pipe(ngmin())
+//         .pipe(gulp.dest(buildPath+'js/all-min.js'));
+// });
+
+// gulp.task('compressjs', function() {
+//   gulp.src(buildPath+'js/all.js')
+//     .pipe(uglify())
+//     .pipe(gulp.dest(buildPath+'js/'));
+// });
+
 
 gulp.task('cssmin', function () {
          gulp.src('app/css/**/*.css')

@@ -12,7 +12,9 @@
     "gulp-jshint": "*",
     "gulp-less": "*",
     "gulp-minify-html": "*",
-    "gulp-rename": "*"
+    "gulp-rename": "*",
+    "gulp-ngmin": "~0.3.0",
+    "gulp-uglify": "~0.3.1"
   },
   "author": "Hemant"
 }
