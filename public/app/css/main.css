@@ -7735,13 +7735,13 @@ button.close {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local('Open Sans'), local('OpenSans'), url(fonts/opensans.woff) format('woff');
+  src: local('Open Sans'), local('OpenSans'), url(../fonts/opensans.woff) format('woff');
 }
 @font-face {
   font-family: 'Shadows Into Light Two';
   font-style: normal;
   font-weight: 400;
-  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url(fonts/shadowsintolighttwo.woff) format('woff');
+  src: local('Shadows Into Light Two'), local('ShadowsIntoLightTwo-Regular'), url(../fonts/shadowsintolighttwo.woff) format('woff');
 }
 .navbar-inverse .badge {
   background-color: #fff;
@@ -8104,6 +8104,8 @@ body {
 h1,
 h2 {
   font-family: 'Shadows Into Light Two', cursive;
+  font-weight: bold;
+  letter-spacing: 0.09em;
 }
 /*** overwrite bootstrap 3 ***/
 #manageImages .close,
