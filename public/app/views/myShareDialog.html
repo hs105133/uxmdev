@@ -1,0 +1,10 @@
+<div class="modal-body">
+    <h3>Link</h3>
+    <input type="url" name="url" readonly="readonly" class="form-control" value="{{ location.href  }}" select-on-click>
+
+    <h3>Embed</h3>
+    <textarea name="output" readonly="readonly" class="form-control" select-on-click>&lt;iframe src="{{ location.href }}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</textarea>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="closeShareDialog()">Close</button>
+</div>
