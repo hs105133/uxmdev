@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('techmApp', ['ngRoute', 'ngAnimate', 'ngResource', 'angularFileUpload', 'FBAngular'])
+angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource', 'angularFileUpload', 'FBAngular'])
 
 .config(function($locationProvider, $routeProvider, $httpProvider) {
 

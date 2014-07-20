@@ -31,30 +31,8 @@
     </div>
     <div ng-show="isViewLoading" id="loading"> loading the awesome... </div>
 
-    <div class="modal fade" id="shareDialog">
-   
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-body">
-                        <h3>Link</h3>
-                        <input type="url" name="url" readonly="readonly" class="form-control" value="{{ location.href  }}" select-on-click>
-
-                        <h3>Embed</h3>
-                        <textarea name="output" readonly="readonly" class="form-control" select-on-click>&lt;iframe src="{{ location.href  }}" width="576" height="420" scrolling="no" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;</textarea>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-        <!-- /.modal-content -->
-    </div>
-    <!-- /.modal-dialog -->
-</div>
-<!-- /.modal -->
-
     <!-- build:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="vendor/bootstrap.js"></script>
     <script src="vendor/fileupload/angular-file-upload-html5-shim.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
@@ -63,6 +41,7 @@
     <script src="vendor/fileupload/angular-file-upload.min.js"></script>
     <script src="bower_components/angular-fullscreen/src/angular-fullscreen.js"></script>
     <script src="vendor/jquery.bookblock.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>

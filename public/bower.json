@@ -28,6 +28,7 @@
     "angular-animate": "*",
     "angular-resource": "*",
     "angular-route": "*",
-    "angular-fullscreen": "*"
+    "angular-fullscreen": "*",
+    "angular-bootstrap": "~0.11.0"
   }
 }

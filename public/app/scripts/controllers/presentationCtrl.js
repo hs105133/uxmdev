@@ -1,5 +1,5 @@
 'use strict';
-angular.module('techmApp').controller('presentationCtrl', function($scope, RestService, $routeParams) {
+angular.module('techmApp').controller('presentationCtrl', function($scope, RestService, $routeParams, $modal) {
 
     $scope.$on('onRepeatLast', function(scope, element, attrs){
 	var $container = $( '#presentation' ),
@@ -206,6 +206,18 @@ angular.module('techmApp').controller('presentationCtrl', function($scope, RestS
 
     // Initially, do not go into full screen
     $scope.isFullscreen = false;
+
+    $scope.openShareDialog = function(){
+
+	    $modal.open({
+	      templateUrl: 'views/myShareDialog.html',
+	      controller: function($scope, $modalInstance){
+	      	  $scope.closeShareDialog = function () {
+			    $modalInstance.dismiss('cancel');
+			  };
+	      }
+	    });
+    };
 
     $scope.toggleFullScreen = function() {
         $scope.isFullscreen = !$scope.isFullscreen;

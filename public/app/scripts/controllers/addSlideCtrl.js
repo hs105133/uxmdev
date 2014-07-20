@@ -282,7 +282,7 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
             $scope.presentationId = result.coverId;
             $scope.addSlidesForm.$setPristine();
             $scope.formData = {};
-            addSlidesForm.reset();
+            addSlidesForm.reset(); // jshint ignore:line
             $rootScope.flashMsg = true;
             resetItems();
             $scope.setSelectedCover();

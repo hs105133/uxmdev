@@ -8292,12 +8292,9 @@ td:last-child > .btn:first-child {
 }
 /*** login/signup form ***/
 .formWrapper {
-  background: #E6E7E8;
-  padding: 0;
-  width: 100%;
-}
-.formWrapper > div {
   margin-top: 60px;
+  max-width: 400px;
+  padding: 0 15px;
 }
 .formWrapper .panel-body {
   padding-top: 25px;
@@ -8305,12 +8302,6 @@ td:last-child > .btn:first-child {
 }
 .formWrapper .panel-title {
   text-align: center;
-}
-.verticalcenter {
-  left: 50%;
-  margin-left: -210px;
-  margin-top: 60px;
-  width: 420px;
 }
 .formFooter {
   padding-top: 10px;

@@ -12,6 +12,7 @@
     "app/vendor/fileupload/angular-file-upload.min.js",
     "app/bower_components/angular-fullscreen/src/angular-fullscreen.js",
     "app/vendor/jquery.bookblock.js",
+    "app/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js",
 
     "app/scripts/app.js",
     "app/scripts/main.js",

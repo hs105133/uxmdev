@@ -1,49 +1,47 @@
-<div class="formWrapper">
-    <div class="verticalcenter col-xs-12">
-        <div class="alert alert-dismissable alert-danger" ng-class="{flash: flashMsg}">
-            <button class="close" type="button" ng-click="closeAlert()">×</button>
-            <strong>{{ flashMsg }}!</strong>
+<div class="formWrapper center-block">
+    <div class="alert alert-dismissable alert-danger" ng-class="{flash: flashMsg}">
+        <button class="close" type="button" ng-click="closeAlert()">×</button>
+        <strong>{{ flashMsg }}!</strong>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Log in to get started</h3>
         </div>
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Log in to get started</h3>
-            </div>
-            <div class="panel-body">
-                <div id="messages" ng-show="message">{{ message }}</div>
-                <form class="form-horizontal" ng-submit="logIn()" method="post" name="loginForm">
-                    <div class="form-group" ng-class="{ 'has-error' : errorName }">
-                        <div class="col-sm-12">
-                            <div class="input-group">
-                                <span class="input-group-addon"><i class="fa fa-user"></i>
-                                </span>
-                                <input type="text" placeholder="Username" id="username" name="username" ng-model="formData.username" class="form-control" required>
-                            </div>
+        <div class="panel-body">
+            <div id="messages" ng-show="message">{{ message }}</div>
+            <form class="form-horizontal" ng-submit="logIn()" method="post" name="loginForm">
+                <div class="form-group" ng-class="{ 'has-error' : errorName }">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i>
+                            </span>
+                            <input type="text" placeholder="Username" id="username" name="username" ng-model="formData.username" class="form-control" required>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <div class="input-group" ng-class="{ 'has-error' : errorPassword }">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i>
-                                </span>
-                                <input type="password" placeholder="Password" id="password" name="password" ng-model="formData.password" class="form-control" required>
-                            </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group" ng-class="{ 'has-error' : errorPassword }">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i>
+                            </span>
+                            <input type="password" placeholder="Password" id="password" name="password" ng-model="formData.password" class="form-control" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group formFooter">
+                    <div class="col-sm-12">
+                        <div class="pull-left">
+                            <button class="btn btn-success" type="submit" ng-disabled="loginForm.$invalid">Log In</a>
+                        </div>
+                        <div class="pull-right">
+                            <a class="btn btn-link" href="#/signup">Sign Up</a>
                         </div>
                     </div>
 
-                    <div class="form-group formFooter">
-                        <div class="col-sm-12">
-                            <div class="pull-left">
-                                <button class="btn btn-success" type="submit" ng-disabled="loginForm.$invalid">Log In</a>
-                            </div>
-                            <div class="pull-right">
-                                <a class="btn btn-link" href="#/signup">Sign Up</a>
-                            </div>
-                        </div>
+                </div>
+            </form>
 
-                    </div>
-                </form>
-
-            </div>
         </div>
     </div>
 </div>

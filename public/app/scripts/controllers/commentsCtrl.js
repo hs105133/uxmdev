@@ -11,7 +11,7 @@ angular.module('techmApp').controller('commentsCtrl', function($scope, UserServi
     $scope.addComment = function(){
       UserService.comments().save({ coverId: coverId, comment: $scope.comment}, function(res){
           $scope.comments.push(res);
-          commentForm.reset();
+          commentForm.reset(); // jshint ignore:line
       });
     };
 });

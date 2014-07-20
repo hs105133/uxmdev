@@ -81,7 +81,7 @@ angular.module('techmApp').controller('createPresentationCtrl', function($scope,
             $scope.addCoverForm.$setPristine();
             $scope.formData = {};
             $scope.selectedFiles = [];
-            addCoverForm.reset();
+            addCoverForm.reset(); // jshint ignore:line
             $rootScope.flashMsg = true;
 
             // if (!data.success) {
