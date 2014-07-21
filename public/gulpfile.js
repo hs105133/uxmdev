@@ -9,6 +9,8 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
     htmlreplace = require('gulp-html-replace'),
+    imagemin = require('gulp-imagemin'),
+    pngcrush = require('imagemin-pngcrush'),
     less = require("gulp-less");
 
 var buildPath = config.buildPath,
@@ -94,6 +96,15 @@ gulp.task('move', function(){
   .pipe(gulp.dest(buildPath));
 });
 
+gulp.task('imagemin', function () {
+    return gulp.src('app/images/*')
+        .pipe(imagemin({
+            progressive: true,
+            svgoPlugins: [{removeViewBox: false}],
+            use: [pngcrush()]
+        }))
+        .pipe(gulp.dest(buildPath));
+});
 
 
 gulp.task("default", ["less", "concatjs", "htmlreplace", "move"]);
