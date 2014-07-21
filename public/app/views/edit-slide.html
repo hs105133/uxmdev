@@ -25,11 +25,12 @@
 
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#slideWrapper" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedBasic = !isCollapsedBasic" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="isCollapsedBasic"></span>
+                    <span class="fa fa-minus" ng-show="!isCollapsedBasic"></span>
                     </a>
                     Basic Information</legend>
-                <div id="slideWrapper" class="collapse in">
+                <div id="slideWrapper" collapse="isCollapsedBasic">
 
                     <div class='form-group'>
                         <label for="header">Edit Header</label>
@@ -66,13 +67,14 @@
 
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#dl" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedDl = !isCollapsedDl" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="!isCollapsedDl"></span>
+                    <span class="fa fa-minus" ng-show="isCollapsedDl"></span>
                     </a>
                     Edit Description List (sub header/description)
 
                 </legend>
-                <div id="dl" class="collapse" ng-class="{in: slide.dl.length}">
+                <div id="dl" collapse="!isCollapsedDl" ng-class="{in: slide.dl.length}">
                     <div ng-repeat="item in slide.dl">
                         <div class='form-group'>
                             <label for="subheader">Edit Sub Header {{$index + 1 }}</label>
@@ -101,11 +103,12 @@
 
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#imgList" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedimgList = !isCollapsedimgList" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="!isCollapsedimgList"></span>
+                    <span class="fa fa-minus" ng-show="isCollapsedimgList"></span>
                     </a>
                     Update Image List</legend>
-                <div id="imgList" class="collapse" ng-class="{in: slide.imageList.length}">
+                <div id="imgList" collapse="!isCollapsedimgList" ng-class="{in: slide.imageList.length}">
                     <div ng-repeat="(key, item) in slide.imageList">
                         <div class='form-group'>
                             <div class="row">
@@ -145,11 +148,12 @@
             </fieldset>
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#tableToggle" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedtableToggle = !isCollapsedtableToggle" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="!isCollapsedtableToggle"></span>
+                    <span class="fa fa-minus" ng-show="isCollapsedtableToggle"></span>
                     </a>
                     Edit Table Header</legend>
-                <div id="tableToggle" class="collapse">
+                <div id="tableToggle" collapse="!isCollapsedtableToggle">
                     <div ng-repeat="(i, item) in slide.table.headers track by $index">
                         <div class="col-sm-4">
                             <div class='form-group'>
@@ -170,11 +174,12 @@
             </fieldset>
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#tableFieldsToggle" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedTableField= !isCollapsedTableField" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="!isCollapsedTableField"></span>
+                    <span class="fa fa-minus" ng-show="isCollapsedTableField"></span>
                     </a>
                     Edit Table Fields</legend>
-                <div id="tableFieldsToggle" class="collapse">
+                <div id="tableFieldsToggle" collapse="!isCollapsedTableField">
                     <div ng-repeat="row in slide.table.rows track by $index">
                         <h4 class="col-sm-12">Record {{ $index + 1}}</h4>
                         <div ng-repeat="(i, cell) in row track by $index">
@@ -201,11 +206,12 @@
             </fieldset>
             <fieldset>
                 <legend>
-                    <a data-toggle="collapse" data-target="#bulletList" class="btn btn-info">
-                        <span class="fa fa-plus"></span>
+                    <a ng-click="isCollapsedBulletList = !isCollapsedBulletList" class="btn btn-info">
+                    <span class="fa fa-plus" ng-show="!isCollapsedBulletList"></span>
+                    <span class="fa fa-minus" ng-show="isCollapsedBulletList"></span>
                     </a>
                     Edit Bullet List</legend>
-                <div id="bulletList" class="collapse">
+                <div id="bulletList" collapse="!isCollapsedBulletList">
                     <div class="col-sm-12">
                         <div class='form-group'>
                             <input id="bulletItem{{$index+1}}" ng-model="slide.bullets" ng-list type="text" class="form-control" />

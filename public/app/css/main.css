@@ -8329,9 +8329,9 @@ td:last-child > .btn:first-child {
   text-align: center;
   clear: both;
 }
-/*.centerBtn button:first-child{
-    display: none;
-}*/
+.centerBtn button:first-child {
+  margin-right: 5px;
+}
 /*** user profile ****/
 #userProfile {
   padding-top: 0;
