@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="UXM Presentation : One stop for everything" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>UXM Presentation</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/hs105133/uxmdev">View on GitHub</a>
+
+          <h1 id="project_title">UXM Presentation</h1>
+          <h2 id="project_tagline">One stop for everything</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/hs105133/uxmdev/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/hs105133/uxmdev/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a name="uxm-presentation" class="anchor" href="#uxm-presentation"><span class="octicon octicon-link"></span></a>UXM Presentation</h1>
+
+<p>A super simple presentation application that will help you to create, update, delete, share presentation online.  </p>
+
+<p><img src="https://raw.githubusercontent.com/hs105133/uxmdev/master/public/app/images/dashboard-cover.png" alt="Presentation Dashboard"></p>
+
+<h2>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<pre><code>* Single Page Application
+* Node.js backend with Express and MongoDB
+* AngularJS frontend
+* Modular Angular components (controllers, services)
+* Good application structure so our app can grow
+* Bower for client side dependency management
+* Gulp for handling build process
+* Node npm as package manager for client, server both. 
+</code></pre>
+
+<p>It's a single page application ( SPA ) that is based on MEAN stack.</p>
+
+<h4>
+<a name="client-side--angular-js-" class="anchor" href="#client-side--angular-js-"><span class="octicon octicon-link"></span></a>Client Side ( Angular JS )</h4>
+
+<p>Client side requires REST API in form of JSON response from back-end.</p>
+
+<ol>
+<li>Angular JS </li>
+<li>Bootstrap </li>
+<li>jQuery ( very little use, for bootstrap dialog, tooltip etc)</li>
+</ol><h4>
+<a name="server-side-node-mongodb-express" class="anchor" href="#server-side-node-mongodb-express"><span class="octicon octicon-link"></span></a>Server Side (Node, MongoDB, Express)</h4>
+
+<p>Back-end is responsible for providing RESTFUL API's nothing more than that, </p>
+
+<ol>
+<li>Node JS</li>
+<li>Express</li>
+<li>MongoDB</li>
+</ol><h2>
+<a name="get-started" class="anchor" href="#get-started"><span class="octicon octicon-link"></span></a>Get Started</h2>
+
+<p>Here is the step by step solution to get started with this app <a href="http://uxm.herokuapp.com/#/covers/b4e5a6f8746799d4">Create Presentation Demo</a></p>
+
+<h2>
+<a name="install" class="anchor" href="#install"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h4>
+<a name="server-side-setup" class="anchor" href="#server-side-setup"><span class="octicon octicon-link"></span></a>Server side setup</h4>
+
+<p>from the project root ( production.js lives here) </p>
+
+<pre lang="shell"><code>npm install
+</code></pre>
+
+<h4>
+<a name="client-side-setup" class="anchor" href="#client-side-setup"><span class="octicon octicon-link"></span></a>Client side setup</h4>
+
+<p>Get inside public folder and do following..</p>
+
+<pre lang="shell"><code>npm install
+bower install
+node production.js
+</code></pre>
+
+<p>Now you should able to see project running on port 5000 </p>
+
+<pre lang="shell"><code>http://localhost:5000/app
+</code></pre>
+
+<h2>
+<a name="developer-setup" class="anchor" href="#developer-setup"><span class="octicon octicon-link"></span></a>Developer setup</h2>
+
+<ol>
+<li><p>run server from terminal <code>node production.js</code>, now you able to see application running from here <code>http://localhost:5000/app</code></p></li>
+<li>
+<p>go inside <code>public</code> folder and run <code>gulp watch</code>, keep in mind all client side code resides in <code>public</code> folder.</p>
+
+<p><strong>HTML Changes</strong></p>
+
+<p>you might want to update <code>index.html</code> or want to add some html partials inside <code>views</code> folder</p>
+
+<p><strong>CSS changes</strong></p>
+
+<p>all css changes shuuld be done inside <code>public / app / less / custom</code> folder</p>
+
+<p><strong>JS changes</strong></p>
+
+<ul>
+<li>install all 3rd party libraries using <code>bower install xxx --save</code>
+</li>
+<li>if plugin you want to install not available through <code>bower</code> then please put that inside <code>vendor</code> folder.</li>
+<li>all custom scripts created by you should go inside <code>scripts</code> folder.</li>
+</ul>
+</li>
+</ol><h3>
+<a name="note-" class="anchor" href="#note-"><span class="octicon octicon-link"></span></a>Note-</h3>
+
+<p>never forget to run <code>gulp watch</code>, it's your best friend, it will do the <code>compilation of your less</code> files into css files and do JS linting for you.</p>
+
+<pre lang="shell"><code>gulp watch
+</code></pre>
+
+<h2>
+<a name="build" class="anchor" href="#build"><span class="octicon octicon-link"></span></a>Build</h2>
+
+<p>Project is ready for production by just running <code>gulp</code> from terminal, it will create create build directory outside your project folder.</p>
+
+<pre lang="shell"><code>gulp
+</code></pre>
+
+<h2>
+<a name="useful-resources" class="anchor" href="#useful-resources"><span class="octicon octicon-link"></span></a>Useful Resources</h2>
+
+<ol>
+<li>Dashboard Page -  <a href="http://uxm.herokuapp.com/#/">dashboard</a>
+</li>
+<li>Create presentation cover - <a href="http://uxm.herokuapp.com/#/create-cover">create cover</a>
+</li>
+<li>Add slides to presentation created in #2 <a href="http://uxm.herokuapp.com/#/addslide">add slides</a>
+</li>
+<li>See created presentation sample <a href="http://uxm.herokuapp.com/#/covers/701e275088775a60">view presentation</a>
+</li>
+<li>See all presentation by anonymous user ( Not registered users) <a href="http://uxm.herokuapp.com/#/covers">all presentation</a>
+</li>
+<li>See all users list <a href="http://uxm.herokuapp.com/#/users">All USers</a>
+</li>
+<li>Registered user have ton of features...
+
+<ul>
+<li>they can CRUD their profiles</li>
+<li>they can do CRUD with presentation </li>
+</ul>
+</li>
+<li>Admin users able to manage other users, images etc.<br>
+</li>
+</ol>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">UXM Presentation maintained by <a href="https://github.com/hs105133">hs105133</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
