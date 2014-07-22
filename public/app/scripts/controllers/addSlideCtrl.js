@@ -134,7 +134,7 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
         }).success(function(data, status, headers, config) {
             // file is uploaded successfully
             
-             if(imgListIndex){
+             if(imgListIndex !== undefined){
                 $scope.formData.imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename; 
             } else {
                 $scope.formData.src = "store/images/" + data[0].filename;

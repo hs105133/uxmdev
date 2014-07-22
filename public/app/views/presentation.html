@@ -57,7 +57,7 @@
                                 <th ng-repeat="thval in slide.table.headers">{{ thval }}</th>
                             </tr>
                             <tr ng-repeat="tdarr in slide.table.rows">
-                                <td ng-repeat="tdval in tdarr">{{ tdval }}</td>
+                                <td ng-repeat="tdval in tdarr track by $index">{{ tdval }}</td>
                             </tr>
                         </table>
                     </div>
