@@ -1,7 +1,9 @@
-<div class="col-sm-12" ng-cloak ng-hide="slides.length">
-    <p class="text-center text-info infoAlert">No slides!
-        <strong><a href="#/addslide/?coverId={{ coverId }}">Add Slide</a>
-        </strong>to create awesome presentation.</p>
+<div class="col-sm-6 col-sm-offset-3 infoAlert" ng-if="!slides.length">
+    <div class="alert flash alert-info text-center">
+         No slides!
+        <strong><a class="alert-link" href="#/addslide/?coverId={{ coverId }}">Add Slide</a>
+        </strong> to create awesome presentation.
+    </div>
 </div>
 <div class="col-sm-8 col-sm-offset-2" ng-controller="navbarCtrl" ng-show="slides.length">
 
