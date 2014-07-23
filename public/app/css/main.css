@@ -8125,7 +8125,8 @@ td:last-child > .btn {
 td:last-child > .btn:first-child {
   margin-left: 0;
 }
-.help-block > strong {
+.help-block > strong,
+.alert > strong {
   margin-right: 4px;
 }
 [ng-hide=currentUser] > li {
