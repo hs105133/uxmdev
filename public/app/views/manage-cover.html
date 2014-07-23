@@ -16,7 +16,7 @@
             </div>
 
             <ul class="list-group">
-                <li class="list-group-item" ng-repeat="cover in myCovers | orderBy:'-createdOn'">
+                <li class="list-group-item" ng-repeat="cover in myCovers">
 
                     <div class="media cover">
                         <a class="pull-left thumbnail" href="#/covers/{{cover.id}}">
@@ -32,7 +32,7 @@
                             <a class="btn btn-info btn-xs" title="Edit Presentation Slide" href="#/covers/{{cover.id}}/edit-slide">
                                 <span class="fa fa-pencil"></span>
                             </a>
-                            <a class="btn btn-danger btn-xs" title="Delete Presentation" ng-click="deleteCover($index, cover.id)">
+                            <a class="btn btn-danger btn-xs" title="Delete Presentation" ng-click="deleteCover($index, cover.id)" href="">
                                 <span class="fa fa-trash-o"></span>
                             </a>
                         </div>
