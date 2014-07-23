@@ -8771,6 +8771,9 @@ td:last-child > .btn:first-child {
 #manageUsers table td:last-child {
   width: 72px;
 }
+.thumbnail {
+  margin-bottom: 0;
+}
 .thumbnail img {
   max-width: 54px;
   max-height: 54px;
