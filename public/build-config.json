@@ -16,6 +16,7 @@
 
     "app/scripts/app.js",
     "app/scripts/main.js",
+    "app/scripts/controllers/ApplicationCtrl.js",
     "app/scripts/controllers/main.js",
     "app/scripts/services/restService.js",
     "app/scripts/controllers/dashboardCtrl.js",

@@ -43,8 +43,8 @@
 		},
 		"createdOn": {
 			"name": "createdOn",
-			"type": "string",
-			"typeLabel": "string",
+			"type": "number",
+			"typeLabel": "number",
 			"required": false,
 			"id": "createdOn",
 			"order": 5
