@@ -3,8 +3,8 @@
         <h1>Create Presentation</h1>
     </div>
     <div class="col-sm-6">
-        <div class="alert alert-dismissable alert-success" ng-class="{flash: flashMsg}">
-            <button data-dismiss="alert" class="close" type="button">×</button>
+        <div class="alert alert-success" ng-class="{flash: flashMsg}">
+            <button ng-click="closeAlert()" class="close" type="button">×</button>
 
             <strong>Well done!</strong>You successfully added cover detail! <a class="alert-link" href="{{ currentUser ? '#/mycovers' : '#/covers' }}"> view  created cover detail</a>.
         </div>

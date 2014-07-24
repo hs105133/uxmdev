@@ -82,7 +82,7 @@ angular.module('techmApp').controller('createPresentationCtrl', function($scope,
             $scope.formData = {};
             $scope.selectedFiles = [];
             addCoverForm.reset(); // jshint ignore:line
-            $rootScope.flashMsg = true;
+            $scope.$parent.flashMsg = true;
 
             // if (!data.success) {
             //             // if not successful, bind errors to error variables

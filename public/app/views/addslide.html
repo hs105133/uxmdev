@@ -4,7 +4,7 @@
     <h1 class="text-center">Add New Slide</h1>
 
     <div class="alert alert-dismissable alert-success" ng-class="{flash: flashMsg}">
-        <button data-dismiss="alert" class="close" type="button">×</button>
+        <button ng-click="closeAlert()" class="close" type="button">×</button>
         <strong>Well done!</strong>You successfully added new slide <a class="alert-link" href="#/covers/{{presentationId}}" target="_blank"> view presentation</a>.
     </div>
     <form id="addSlidesForm" name="addSlidesForm" method="post" ng-submit="addSlides()" novalidate>

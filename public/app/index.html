@@ -22,7 +22,7 @@
 <body>
     <div ng-include="'views/partials/navbar.html'"></div>
 
-    <div id="site-wrapper">
+    <div id="site-wrapper" ng-controller="ApplicationCtrl">
         <div id="site-canvas" class="ease">
            <div id="site-menu" ng-include="'views/partials/sidebar.html'">
            </div>
@@ -45,6 +45,7 @@
 
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>
+    <script src="scripts/controllers/ApplicationCtrl.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/restService.js"></script>
     <script src="scripts/controllers/dashboardCtrl.js"></script>
