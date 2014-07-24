@@ -2,7 +2,6 @@
 angular.module('techmApp').controller('createPresentationCtrl', function($scope, PresentationService, $http, $rootScope, $upload) {
     //page.setPage("Create Cover");
     $scope.formData = {};
-    $rootScope.flashMsg = false;
 
     $scope.onFileSelect = function($files) {
         $scope.selectedFiles = $files;
@@ -69,7 +68,7 @@ angular.module('techmApp').controller('createPresentationCtrl', function($scope,
     // process the form
     $scope.addCover = function() {
 
-        $rootScope.flashMsg = false;
+        $scope.$parent.flashMsg = false;
 
         if (!$scope.formData.coverImg) {
             $scope.formData.coverImg = "http://placehold.it/300x300";

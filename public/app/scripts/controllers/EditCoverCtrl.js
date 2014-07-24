@@ -2,7 +2,7 @@
 angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserService, $rootScope, $http, $routeParams, $location, $upload) {
 
     $scope.formData = UserService.covers().get({id: $routeParams.coverId});
-    $rootScope.flashMsg = false;
+    $scope.$parent.flashMsg = false;
 
     $scope.onFileSelect = function($files) {
         $scope.selectedFiles = $files;
@@ -31,7 +31,7 @@ angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserServ
     // process the form
     $scope.updateCover = function() {
 
-        $rootScope.flashMsg = false;
+        $scope.$parent.flashMsg = false;
 
         if(!$scope.formData.coverImg){
             $scope.formData.coverImg = "http://placehold.it/300x300";
@@ -39,7 +39,7 @@ angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserServ
 
         UserService.covers().update($scope.formData, function(data, error) {
 
-            $rootScope.flashMsg = true;
+            $scope.$parent.flashMsg = true;
 
         }, function(error) {
             console.log("error");

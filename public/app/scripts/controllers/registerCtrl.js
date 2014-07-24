@@ -7,20 +7,21 @@ angular.module('techmApp').controller('RegisterCtrl', function($scope, UserServi
 //   }
 
   $scope.formData = {};
+  $scope.$parent.flashMsg = false;
 
   $scope.register = function() {
-    $rootScope.flashMsg = false;  
+    $scope.$parent.flashMsg = false;
     UserService.user().save($scope.formData, function(userData){
 
       UserService.logIn($scope.formData).success(function(res, error){
         UserService.getMe(userData);
         $location.path("/");
       }, function(res){
-        $rootScope.flashMsg = res.data.message;
+        $scope.$parent.flashMsg = res.data.message;
       });
 
     }, function(res){
-      $rootScope.flashMsg = "Username is already in use";
+      $scope.$parent.flashMsg = "Username is already in use";
     });
 
   };

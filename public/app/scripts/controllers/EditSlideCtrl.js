@@ -1,10 +1,9 @@
 'use strict';
 angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestService, $routeParams, $rootScope, $location, $http, $upload) {
     $scope.slides = {};
-    $rootScope.flashMsg = false;
     
-
 	 $scope.coverId = $routeParams.coverId;
+	 $scope.$parent.flashMsg = false;
 
      $scope.updateRoute = function(slideId){
         $location.path("/covers/"+$scope.coverId+"/edit-slide/"+slideId);
@@ -258,14 +257,14 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     // process the form
     $scope.updateSlide = function(index, slide) {  
 
-        $rootScope.flashMsg = false;
+        $scope.$parent.flashMsg = false;
 
         RestService.mySlideService().update(slide, function(result, error) {
             $rootScope.slides[index] = result;
             //updateSlidesForm.$setPristine();
             //$scope.slides = {};
             //updateSlidesForm.reset();
-            $rootScope.flashMsg = index+1;
+            $scope.$parent.flashMsg = index+1;
             $("#mainContent").animate({
                 scrollTop: $("#updateSlidesForm").offset().top
             }, "fast");            
@@ -280,7 +279,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
 
     $scope.deleteSlide = function(index, slide){
         RestService.mySlideService().remove({ id: slide.id}, function(result, error) {
-            $rootScope.flashMsg = index+1;
+            $scope.$parent.flashMsg= index+1;
             $rootScope.slides.splice(index,1);
             if($rootScope.slides.length) $scope.updateRoute($rootScope.slides[0].id);
             $("#mainContent").animate({
@@ -290,7 +289,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     };
 
     $scope.closeAlert  = function(){
-        $rootScope.flashMsg = false;
+        $scope.$parent.flashMsg = false;
     };
 
   });

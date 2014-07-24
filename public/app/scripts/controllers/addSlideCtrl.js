@@ -2,7 +2,7 @@
 
 angular.module('techmApp').controller('addSlideCtrl', function($scope, RestService, $rootScope, $http, $location, $routeParams, $upload) {
 
-    $rootScope.flashMsg = false;
+    $scope.$parent.flashMsg = false;
 
     $scope.setSelectedCover = function() {
         $scope.formData.coverId = $routeParams.coverId ? $routeParams.coverId : null;
@@ -133,7 +133,7 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
             $scope.formData.imageList[imgListIndex].progress1[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         }).success(function(data, status, headers, config) {
             // file is uploaded successfully
-            
+                
              if(imgListIndex !== undefined){
                 $scope.formData.imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename; 
             } else {
@@ -264,10 +264,9 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
         // }
         //$scope.slides = [];
         // $scope.formData.bullets = $scope.formData.bullets;
-
+        $scope.$parent.flashMsg = false;
         var data = JSON.parse(JSON.stringify($scope.formData)); // clone object
 
-        $rootScope.flashMsg = false;
 
         // exclude empty fields  
         Object.keys(data).forEach(function(k) {
