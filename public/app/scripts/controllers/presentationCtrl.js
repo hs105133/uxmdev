@@ -208,24 +208,27 @@ angular.module('techmApp').controller('presentationCtrl', function($scope, RestS
     $scope.isFullscreen = false;
 
     $scope.openShareDialog = function(){
-
 	    $modal.open({
-	      templateUrl: 'views/myShareDialog.html',
-	      controller: function($scope, $modalInstance){
+	      templateUrl: "views/myShareDialog.html",
+	      controller: shareModalCtrl
+	    });
+    };
+
+    var shareModalCtrl = function($scope, $modalInstance){
 	      	  $scope.closeShareDialog = function () {
 			    $modalInstance.dismiss('cancel');
 			  };
-	      }
-	    });
-    };
+	      };
+
+	shareModalCtrl.$inject = ['$scope', '$modalInstance'];      
 
     $scope.toggleFullScreen = function() {
         $scope.isFullscreen = !$scope.isFullscreen;
     };
 
-    $('#shareDialog').on('hide.bs.modal', function (e) {
-  		$(".asideSection").addClass("show");
-	});
+ //    $('#shareDialog').on('hide.bs.modal', function (e) {
+ //  		$(".asideSection").addClass("show");
+	// });
 
     // RestService.coverService().query(function(data){
     //      $scope.slides = data.slides;
