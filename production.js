@@ -5,13 +5,13 @@ var server = deployd({
   env: 'development',
   // env: 'production',
   db: {
-    host: 'ds033217.mongolab.com',
-    port: 33217,
-    name: 'techm',
-    credentials: {
-      username: 'hs105133',
-      password: '12345'
-    }
+    host: 'localhost', // for prod xxxxxx.mongolab.com
+    port: 27017, 
+    name: 'test'
+    // credentials: {
+    //   username: 'hs105133',
+    //   password: '12345'
+    // }
   }
 });
 

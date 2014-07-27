@@ -19,10 +19,10 @@
 
 </head>
 
-<body>
+<body ng-controller="ApplicationCtrl">
     <div ng-include="'views/partials/navbar.html'"></div>
 
-    <div id="site-wrapper" ng-controller="ApplicationCtrl">
+    <div id="site-wrapper">
         <div id="site-canvas" class="ease">
            <div id="site-menu" ng-include="'views/partials/sidebar.html'">
            </div>
@@ -46,7 +46,6 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/controllers/ApplicationCtrl.js"></script>
-    <script src="scripts/controllers/main.js"></script>
     <script src="scripts/services/restService.js"></script>
     <script src="scripts/controllers/dashboardCtrl.js"></script>
     <script src="scripts/controllers/presentationCtrl.js"></script>
@@ -54,18 +53,16 @@
     <script src="scripts/controllers/adminUserCtrl.js"></script>
     <script src="scripts/services/presentationService.js"></script>
     <script src="scripts/controllers/createPresentationCtrl.js"></script>
-     <script src="scripts/directives/upload.js"></script>
      <script src="scripts/controllers/addSlideCtrl.js"></script>
-     <script src="scripts/controllers/manageImagesCtrl.js"></script>
+     <script src="scripts/controllers/ManageImagesCtrl.js"></script>
      <script src="scripts/controllers/registerCtrl.js"></script>
      <script src="scripts/controllers/AdminUserCtrl.js"></script>
-     <script src="scripts/controllers/ApplicationController.js"></script>
      <script src="scripts/controllers/MyProfileCtrl.js"></script>
      <script src="scripts/controllers/EditUserInfo.js"></script>
      <script src="scripts/controllers/UserCoversCtrl.js"></script>
      <script src="scripts/controllers/EditCoverCtrl.js"></script>
      <script src="scripts/controllers/EditSlideCtrl.js"></script>
-     <script src="scripts/controllers/commentsCtrl.js"></script>
+     <script src="scripts/controllers/CommentsCtrl.js"></script>
      <script src="scripts/controllers/AllCoversCtrl.js"></script>
      <script src="scripts/controllers/MyCoversCtrl.js"></script>
      <script src="scripts/controllers/UsersCtrl.js"></script>

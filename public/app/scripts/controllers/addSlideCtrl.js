@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('techmApp').controller('addSlideCtrl', function($scope, RestService, $rootScope, $http, $location, $routeParams, $upload) {
+angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScope, $http, $location, $routeParams, $upload, RestService) {
 
     $scope.$parent.flashMsg = false;
 
@@ -116,7 +116,7 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
         $scope.formData.imageList[imgListIndex].progress1[index] = 0;
         $scope.upload = $upload.upload({
             url: "/upload?subdir=images",
-            method: "PUT", 
+            method: "PUT",
             // method: 'POST' or 'PUT',
             // headers: {'header-key': 'header-value'},
             // withCredentials: true,
@@ -133,13 +133,13 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, RestServi
             $scope.formData.imageList[imgListIndex].progress1[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         }).success(function(data, status, headers, config) {
             // file is uploaded successfully
-                
-             if(imgListIndex !== undefined){
-                $scope.formData.imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename; 
+
+            if (imgListIndex !== undefined) {
+                $scope.formData.imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename;
             } else {
                 $scope.formData.src = "store/images/" + data[0].filename;
             }
-               
+
         });
     };
 

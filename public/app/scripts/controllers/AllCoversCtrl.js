@@ -1,4 +1,4 @@
 'use strict';
-angular.module('techmApp').controller('AllCoversCtrl', function($scope, RestService, UserService, $rootScope) {
+angular.module('techmApp').controller('AllCoversCtrl', function($scope, $rootScope, RestService, UserService) {
     $scope.covers = UserService.covers().query();
 });

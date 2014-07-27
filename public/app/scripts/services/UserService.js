@@ -3,13 +3,15 @@ angular.module('techmApp').factory('UserService', function($http, $resource, $ro
 
     return {
         logIn: function(formData) {
-            return $http.post('/users/login', formData).success(function(data){
+            return $http.post('/users/login', formData).success(function(data) {
                 AuthenticationService.isLogged = true;
-                $window.sessionStorage.token = data.id; 
+                $window.sessionStorage.token = data.id;
             });
         },
         logOut: function() {
-            return $http.post('/users/logout', {sid: sessionStorage.token}).success(function(){
+            return $http.post('/users/logout', {
+                sid: sessionStorage.token
+            }).success(function() {
                 AuthenticationService.isLogged = false;
                 $rootScope.currentUser = null;
                 delete $window.sessionStorage.token;
@@ -17,27 +19,39 @@ angular.module('techmApp').factory('UserService', function($http, $resource, $ro
                 $location.path("/login");
             });
         },
-        getMe: function(data){
+        getMe: function(data) {
             $rootScope.currentUser = data;
             $window.sessionStorage.currentUser = JSON.stringify(data);
         },
         getUser: function() {
             return $http.get('/users/me');
-        },        
-        user: function(){
-           return $resource('/users/:userId', {userId: "@id"}, {
-                       update: { method: 'PUT' } 
-           });              
         },
-        covers: function(){
-          return $resource('/covers/:coverId', {coverId: "@id"}, {
-                      update: { method: 'PUT'}
-          });              
+        user: function() {
+            return $resource('/users/:userId', {
+                userId: "@id"
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
         },
-        comments: function(){
-          return $resource('/comments', {coverId: "@id"}, {
-                      update: { method: 'PUT'}
-          });              
+        covers: function() {
+            return $resource('/covers/:coverId', {
+                coverId: "@id"
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
+        },
+        comments: function() {
+            return $resource('/comments', {
+                coverId: "@id"
+            }, {
+                update: {
+                    method: 'PUT'
+                }
+            });
         }
 
     };

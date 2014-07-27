@@ -51,6 +51,7 @@ gulp.task('lint', function() {
 
 gulp.task('concatjs', function() {
     gulp.src(config.jsSrc)
+        
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest(buildPath+'js/'))
         .pipe(ngmin())

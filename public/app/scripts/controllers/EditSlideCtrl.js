@@ -1,23 +1,25 @@
 'use strict';
-angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestService, $routeParams, $rootScope, $location, $http, $upload) {
+angular.module('techmApp').controller('EditSlideCtrl', function($scope, $routeParams, $rootScope, $location, $http, $upload, RestService) {
     $scope.slides = {};
-    
-	 $scope.coverId = $routeParams.coverId;
-	 $scope.$parent.flashMsg = false;
 
-     $scope.updateRoute = function(slideId){
-        $location.path("/covers/"+$scope.coverId+"/edit-slide/"+slideId);
-     };
+    $scope.coverId = $routeParams.coverId;
+    $scope.$parent.flashMsg = false;
 
-     if($rootScope.slides){
-        $scope.slides = $rootScope.slides;   
-     } else {
-        $scope.slides = RestService.mySlideService().query({coverId: $routeParams.coverId}, function(res){
+    $scope.updateRoute = function(slideId) {
+        $location.path("/covers/" + $scope.coverId + "/edit-slide/" + slideId);
+    };
+
+    if ($rootScope.slides) {
+        $scope.slides = $rootScope.slides;
+    } else {
+        $scope.slides = RestService.mySlideService().query({
+            coverId: $routeParams.coverId
+        }, function(res) {
             $rootScope.slides = res;
-            if(res.length) $scope.updateRoute(res[0].id);
+            if (res.length) $scope.updateRoute(res[0].id);
         });
-               
-     }
+
+    }
 
     /** form processing ****/
     /** duplicated in addSlideCtrl.js ***/
@@ -112,7 +114,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
         $scope.slides[imgIndex].imageList[imgListIndex].progress1[index] = 0;
         $scope.upload = $upload.upload({
             url: "/upload?subdir=images",
-            method: "PUT", 
+            method: "PUT",
             // method: 'POST' or 'PUT',
             // headers: {'header-key': 'header-value'},
             // withCredentials: true,
@@ -129,13 +131,13 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
             $scope.slides[imgIndex].imageList[imgListIndex].progress1[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         }).success(function(data, status, headers, config) {
             // file is uploaded successfully
-            
-             if(imgListIndex !== undefined){
-                $scope.slides[imgIndex].imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename; 
+
+            if (imgListIndex !== undefined) {
+                $scope.slides[imgIndex].imageList[imgListIndex].imgUrl = "store/images/" + data[0].filename;
             } else {
                 $scope.slides[imgIndex].src = "store/images/" + data[0].filename;
             }
-               
+
         });
     };
 
@@ -157,7 +159,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     //         } else {
     //             $scope.slides[imgIndex].imageList[imgIndex].imgUrl = "../store/" + data[0].filename;
     //         }
-            
+
     //     }).error(function(data) {
     //         console.log("errr", data);
     //     });
@@ -166,7 +168,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
 
 
     $scope.addDL = function(index, slide) {
-        if(!$scope.slides[index].dl){
+        if (!$scope.slides[index].dl) {
             $scope.slides[index].dl = [];
         }
         // $scope.slides[index].dl =  $scope.slides[index].dl ? $scope.slides[index].dl : [];
@@ -186,7 +188,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     };
 
     $scope.addImageList = function(index) {
-        if(!$scope.slides[index].imageList){
+        if (!$scope.slides[index].imageList) {
             $scope.slides[index].imageList = [];
         }
         var len = $scope.slides[index].imageList.length + 1;
@@ -204,11 +206,11 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     };
 
     $scope.addTableHeader = function(index) {
-        if(!$scope.slides[index].table){
+        if (!$scope.slides[index].table) {
             $scope.slides[index].table = {
                 headers: [],
                 rows: []
-            };            
+            };
         }
         var len = $scope.slides[index].table.headers.length + 1;
         $scope.removeTableHeaderFlag = true;
@@ -236,11 +238,11 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
     };
 
     $scope.addTableRecord = function(index) {
-        if(!$scope.slides[index].table){
+        if (!$scope.slides[index].table) {
             $scope.slides[index].table = {
                 headers: [],
                 rows: []
-            };            
+            };
         }
         var len = $scope.slides[index].table.headers.length;
         $scope.removeTableCellFlag = true;
@@ -255,7 +257,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
 
 
     // process the form
-    $scope.updateSlide = function(index, slide) {  
+    $scope.updateSlide = function(index, slide) {
 
         $scope.$parent.flashMsg = false;
 
@@ -264,10 +266,10 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
             //updateSlidesForm.$setPristine();
             //$scope.slides = {};
             //updateSlidesForm.reset();
-            $scope.$parent.flashMsg = index+1;
+            $scope.$parent.flashMsg = index + 1;
             $("#mainContent").animate({
                 scrollTop: $("#updateSlidesForm").offset().top
-            }, "fast");            
+            }, "fast");
             //resetItems();
 
 
@@ -277,19 +279,21 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, RestServ
 
     };
 
-    $scope.deleteSlide = function(index, slide){
-        RestService.mySlideService().remove({ id: slide.id}, function(result, error) {
-            $scope.$parent.flashMsg= index+1;
-            $rootScope.slides.splice(index,1);
-            if($rootScope.slides.length) $scope.updateRoute($rootScope.slides[0].id);
+    $scope.deleteSlide = function(index, slide) {
+        RestService.mySlideService().remove({
+            id: slide.id
+        }, function(result, error) {
+            $scope.$parent.flashMsg = index + 1;
+            $rootScope.slides.splice(index, 1);
+            if ($rootScope.slides.length) $scope.updateRoute($rootScope.slides[0].id);
             $("#mainContent").animate({
                 scrollTop: $("#updateSlidesForm").offset().top
             }, "fast");
         });
     };
 
-    $scope.closeAlert  = function(){
+    $scope.closeAlert = function() {
         $scope.$parent.flashMsg = false;
     };
 
-  });
+}); 

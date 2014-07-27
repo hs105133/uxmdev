@@ -1,7 +1,9 @@
 'use strict';
-angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserService, $rootScope, $http, $routeParams, $location, $upload) {
+angular.module('techmApp').controller('EditCoverCtrl', function($scope, $rootScope, $http, $routeParams, $location, $upload, UserService) {
 
-    $scope.formData = UserService.covers().get({id: $routeParams.coverId});
+    $scope.formData = UserService.covers().get({
+        id: $routeParams.coverId
+    });
     $scope.$parent.flashMsg = false;
 
     $scope.onFileSelect = function($files) {
@@ -33,7 +35,7 @@ angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserServ
 
         $scope.$parent.flashMsg = false;
 
-        if(!$scope.formData.coverImg){
+        if (!$scope.formData.coverImg) {
             $scope.formData.coverImg = "http://placehold.it/300x300";
         }
 
@@ -46,12 +48,14 @@ angular.module('techmApp').controller('EditCoverCtrl', function($scope, UserServ
         });
 
     };
-    
+
     // duplicated in UsersCoverCtrl.js
-    $scope.deleteCover = function(coverId){
-        UserService.covers().remove({ id: coverId}, function(result, error) {
+    $scope.deleteCover = function(coverId) {
+        UserService.covers().remove({
+            id: coverId
+        }, function(result, error) {
             $location.path("/");
         });
-    };    
+    };
 
 });

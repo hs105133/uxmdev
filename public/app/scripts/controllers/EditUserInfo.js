@@ -1,5 +1,5 @@
 'use strict';
-angular.module('techmApp').controller('EditUserInfo', function($scope, UserService, $routeParams, $rootScope, $location, $upload) {
+angular.module('techmApp').controller('EditUserInfo', function($scope, $routeParams, $rootScope, $location, $upload, UserService) {
     $scope.formData = $rootScope.currentUser;
     $scope.updateUserInfo = function() {
         UserService.user().save($scope.formData, function(res) {
@@ -43,10 +43,14 @@ angular.module('techmApp').controller('EditUserInfo', function($scope, UserServi
             // file is uploaded successfully
             $scope.formData.profilepic = "store/images/" + data[0].filename;
             // not so cool need to be optimized
-            UserService.user().update({ id: $scope.currentUser.id, profilepic : "store/images/" + data[0].filename}, function(data, error) {
-            	UserService.getMe(data);
+            UserService.user().update({
+                id: $scope.currentUser.id,
+                profilepic: "store/images/" + data[0].filename
+            }, function(data, error) {
+                UserService.getMe(data);
             });
         });
     };
 
 });
+

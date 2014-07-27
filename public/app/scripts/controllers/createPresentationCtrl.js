@@ -1,5 +1,5 @@
 'use strict';
-angular.module('techmApp').controller('createPresentationCtrl', function($scope, PresentationService, $http, $rootScope, $upload) {
+angular.module('techmApp').controller('createPresentationCtrl', function($scope, $http, $rootScope, $upload, PresentationService) {
     //page.setPage("Create Cover");
     $scope.formData = {};
 
