@@ -33,6 +33,14 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScop
         $scope.removeTableHeaderFlag = false;
         $scope.removeTableCellFlag = false;
 
+        $scope.isCollapsedDl = false;
+        $scope.isCollapsedimgList = false;
+        $scope.isCollapsedtableToggle = false;
+        $scope.isCollapsedTableField = false;
+        $scope.isCollapsedBulletList = false;      
+        $scope.selectedFiles = [];
+        $scope.selectedFiles1 = [];
+
         $scope.formData.dl = [
             // {
             //     dt: "term 1 ",

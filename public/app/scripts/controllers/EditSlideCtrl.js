@@ -8,6 +8,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, $routePa
     $scope.updateRoute = function(slideId) {
         $location.path("/covers/" + $scope.coverId + "/edit-slide/" + slideId);
     };
+    
 
     if ($rootScope.slides) {
         $scope.slides = $rootScope.slides;
@@ -24,39 +25,47 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, $routePa
     /** form processing ****/
     /** duplicated in addSlideCtrl.js ***/
 
-    var resetItems = function() {
-        $scope.slides = {};
-        $scope.removeDLFlag = false;
-        $scope.removeImageListFlag = false;
-        $scope.removeTableHeaderFlag = false;
-        $scope.removeTableCellFlag = false;
+    // var resetItems = function() {
+    //     $scope.slides = {};
+    //     $scope.removeDLFlag = false;
+    //     $scope.removeImageListFlag = false;
+    //     $scope.removeTableHeaderFlag = false;
+    //     $scope.removeTableCellFlag = false;
 
-        $scope.slides.dl = [
-            // {
-            //     dt: "term 1 ",
-            //     dd: "data 1"
-            // }
-        ];
+    //     $scope.isCollapsedDl = false;
+    //     $scope.isCollapsedimgList = false;
+    //     $scope.isCollapsedtableToggle = false;
+    //     $scope.isCollapsedTableField = false;
+    //     $scope.isCollapsedBulletList = false;      
+    //     $scope.selectedFiles = [];
+    //     $scope.selectedFiles1 = [];
+        
+    //     $scope.slides.dl = [
+    //         // {
+    //         //     dt: "term 1 ",
+    //         //     dd: "data 1"
+    //         // }
+    //     ];
 
-        $scope.slides.imageList = [
-            // {
-            //     imgUrl: "http://placehold.it/64x64",
-            //     imgDesc: "Something about image"
-            // }
-        ];
+    //     $scope.slides.imageList = [
+    //         // {
+    //         //     imgUrl: "http://placehold.it/64x64",
+    //         //     imgDesc: "Something about image"
+    //         // }
+    //     ];
 
-        $scope.slides.table = {
-            // headers: [ "header 1"],
-            // rows: [["data 1"]]
-            headers: [],
-            rows: []
-        };
+    //     $scope.slides.table = {
+    //         // headers: [ "header 1"],
+    //         // rows: [["data 1"]]
+    //         headers: [],
+    //         rows: []
+    //     };
 
-        $scope.slides.bullets = [];
-        $(".collapse").not(":first").removeClass("in");
-    };
+    //     $scope.slides.bullets = [];
+    //     $(".collapse").not(":first").removeClass("in");
+    // };
 
-    $(".collapse").not(":first").addClass("in"); //need to be removed
+    // $(".collapse").not(":first").addClass("in"); //need to be removed
 
     $scope.onFileSelect = function(files, imgIndex) {
         $scope.selectedFiles = files;
