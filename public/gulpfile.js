@@ -9,13 +9,14 @@ var gulp = require("gulp"),
     rename = require('gulp-rename'),
     jshint = require('gulp-jshint'),
     htmlreplace = require('gulp-html-replace'),
-    less = require("gulp-less");
+    less = require("gulp-less"),
+    templateCache = require('gulp-angular-templatecache');
 
 var buildPath = config.buildPath,
 	lessSrc = config.lessSrc;
 	
 
-gulp.task('htmlreplace', function() {
+gulp.task('htmlreplace',  function() {
   gulp.src('app/index.html')
     .pipe(htmlreplace({
         'css': 'css/main.min.css',
@@ -24,12 +25,10 @@ gulp.task('htmlreplace', function() {
     .pipe(gulp.dest(buildPath))
     .pipe(minifyHTML({quotes: true, empty:true, spare: true }))
     .pipe(gulp.dest(buildPath));
-
-    gulp.run('html');
 });
 
-gulp.task('html', function() {
-  gulp.src('app/views/**/*.html')
+gulp.task('html', ["htmlreplace"], function() {
+  return gulp.src('app/views/**/*.html')
     .pipe(minifyHTML({quotes: true, empty:true, spare: true }))
     .pipe(gulp.dest(buildPath+"views"));
 });
@@ -38,28 +37,23 @@ gulp.task('less', function () {
     gulp.src(lessSrc) // path to your file
     .pipe(less())
     .pipe(gulp.dest('app/css/'));
-
-    gulp.run('cssmin');
 });
 
-gulp.task('lint', function() {
-  gulp.src("app/scripts/**/*.js")
+gulp.task('lint',["concatjs"], function() {
+  return gulp.src("app/scripts/**/*.js")
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
 });
 
 
-gulp.task('concatjs', function() {
-    gulp.src(config.jsSrc)
-        
+gulp.task('concatjs', ["templateCache"], function() {
+    return gulp.src(config.jsSrc)    
         .pipe(concat('all.min.js'))
         .pipe(gulp.dest(buildPath+'js/'))
         .pipe(ngmin())
         .pipe(gulp.dest(buildPath+'js/'))
         .pipe(uglify())
         .pipe(gulp.dest(buildPath+'js/'));
-
-    gulp.run('lint');
 });
 
 
@@ -76,7 +70,7 @@ gulp.task('concatjs', function() {
 // });
 
 
-gulp.task('cssmin', function () {
+gulp.task('cssmin', ["less"], function () {
          gulp.src('app/css/**/*.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
@@ -95,5 +89,11 @@ gulp.task('move', function(){
   .pipe(gulp.dest(buildPath));
 });
 
+gulp.task('templateCache', ["html"], function () {
+    return gulp.src(buildPath+'views/partials/*.html')
+        .pipe(templateCache({module: "techmApp"}))
+        .pipe(gulp.dest('app/vendor/'));
+});
 
-gulp.task("default", ["less", "concatjs", "htmlreplace", "move"]);
+
+gulp.task("default", ["less", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);

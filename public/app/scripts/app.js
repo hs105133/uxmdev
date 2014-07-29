@@ -9,7 +9,7 @@ angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource'
 
     $routeProvider
         .when('/', {
-            templateUrl: 'views/dashboard.html',
+            templateUrl: 'dashboard.html',
             title: 'Dashboard'
         })
         .when('/create-cover', {
