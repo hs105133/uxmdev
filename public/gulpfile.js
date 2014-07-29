@@ -96,4 +96,4 @@ gulp.task('templateCache', ["html"], function () {
 });
 
 
-gulp.task("default", ["less", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);
+gulp.task("default", ["less", "cssmin", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);
