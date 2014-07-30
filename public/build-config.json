@@ -47,7 +47,8 @@
 ],
 "filesToMove": [
       "app/images/**/*.*",
-      "app/fonts/**/*.*"
+      "app/fonts/**/*.*",
+      "app/favicon.ico"
     ]
 
 }
