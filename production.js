@@ -5,13 +5,9 @@ var server = deployd({
   env: 'development',
   // env: 'production',
   db: {
-    host: 'localhost', // for prod xxxxxx.mongolab.com
+    host: 'localhost',
     port: 27017, 
     name: 'test'
-    // credentials: {
-    //   username: 'hs105133',
-    //   password: '12345'
-    // }
   }
 });
 
