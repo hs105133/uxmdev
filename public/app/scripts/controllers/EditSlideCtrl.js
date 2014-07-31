@@ -9,7 +9,7 @@ angular.module('techmApp').controller('EditSlideCtrl', function($scope, $routePa
         $location.path("/covers/" + $scope.coverId + "/edit-slide/" + slideId);
     };
     
-
+    
     if ($rootScope.slides) {
         $scope.slides = $rootScope.slides;
     } else {
