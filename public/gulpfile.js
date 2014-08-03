@@ -3,6 +3,7 @@ var gulp = require("gulp"),
     concat = require('gulp-concat'),
     ngmin = require('gulp-ngmin'),
     uglify = require('gulp-uglify'),
+    sourcemaps = require('gulp-sourcemaps'),
 
     minifyHTML = require('gulp-minify-html'),
     cssmin = require('gulp-cssmin'),
@@ -34,9 +35,20 @@ gulp.task('html', ["htmlreplace"], function() {
 });
 
 gulp.task('less', function () {
-    gulp.src(lessSrc) // path to your file
+    return gulp.src(lessSrc) // path to your file
+    .pipe(sourcemaps.init())
     .pipe(less())
-    .pipe(gulp.dest('app/css/'));
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest('app/.temp/'));
+});
+
+// not working with dynamic content
+gulp.task('uncss', ["less"], function() {
+    gulp.src('app/.temp/main.css')
+        .pipe(uncss({
+            html: ['app/index.html']
+        }))
+        .pipe(gulp.dest('app/css'));
 });
 
 gulp.task('lint',["concatjs"], function() {
@@ -53,7 +65,7 @@ gulp.task('concatjs', ["templateCache"], function() {
         .pipe(ngmin())
         .pipe(gulp.dest(buildPath+'js/'))
         .pipe(uglify())
-        .pipe(gulp.dest(buildPath+'js/'));
+        .pipe(gulp.dest(buildPath+'js/'))
 });
 
 
@@ -71,7 +83,7 @@ gulp.task('concatjs', ["templateCache"], function() {
 
 
 gulp.task('cssmin', ["less"], function () {
-         gulp.src('app/css/**/*.css')
+         gulp.src('app/.temp/main.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(buildPath+'css'));
@@ -95,5 +107,4 @@ gulp.task('templateCache', ["html"], function () {
         .pipe(gulp.dest('app/vendor/'));
 });
 
-
-gulp.task("default", ["less", "cssmin", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);
+gulp.task("default", [ "less", "cssmin", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);
