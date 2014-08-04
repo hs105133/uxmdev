@@ -4,6 +4,7 @@ var gulp = require("gulp"),
     ngmin = require('gulp-ngmin'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
+    cssBase64 = require('gulp-css-base64'),
 
     minifyHTML = require('gulp-minify-html'),
     cssmin = require('gulp-cssmin'),
@@ -82,8 +83,15 @@ gulp.task('concatjs', ["templateCache"], function() {
 // });
 
 
+gulp.task('cssBase64', ["less"], function () {
+    return gulp.src('app/.temp/main.css')
+        .pipe(cssBase64())
+        .pipe(gulp.dest('app/css/'));
+});
+
+
 gulp.task('cssmin', ["less"], function () {
-         gulp.src('app/.temp/main.css')
+         gulp.src('app/css/main.css')
         .pipe(cssmin())
         .pipe(rename({suffix: '.min'}))
         .pipe(gulp.dest(buildPath+'css'));
@@ -107,4 +115,4 @@ gulp.task('templateCache', ["html"], function () {
         .pipe(gulp.dest('app/vendor/'));
 });
 
-gulp.task("default", [ "less", "cssmin", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);
+gulp.task("default", [ "less", "cssBase64", "cssmin", "lint", "html", "htmlreplace", "templateCache", "concatjs", "move"]);

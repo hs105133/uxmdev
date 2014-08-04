@@ -18,7 +18,8 @@
     "gulp-imagemin": "~0.6.1",
     "imagemin-pngcrush": "~0.1.0",
     "gulp-angular-templatecache": "~1.2.1",
-    "gulp-sourcemaps": "~1.1.0"
+    "gulp-sourcemaps": "~1.1.0",
+    "gulp-css-base64": "~1.2.4"
   },
   "author": "Hemant"
 }
