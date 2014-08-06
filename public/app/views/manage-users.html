@@ -3,34 +3,39 @@
         <h1 class="text-center">Manage Users</h1>
     </div>
     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+    <div class="alert alert-dismissable alert-danger text-center" ng-class="{flash: flashMsg}">
+        <button class="close" type="button" ng-click="closeAlert()">×</button>
+        <strong>{{ flashMsg }}!</strong>
+    </div>
+
         <div class="table-responsive">
-<table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Index</th> 
-          <th>Username</th>
-          <th>Email</th>
-          <th>About User</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr ng-repeat="user in users">
-          <td> {{ $index + 1 }}</td>
-          <td>{{ user.username }}</td>
-          <td>{{ user.email }}</td>
-          <td>{{ user.aboutme | limitTo:50 }} {{ user.aboutme.length > 50 ? "...": "" }}</td>
-          <td>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>About User</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.aboutme | limitTo:50 }} {{ user.aboutme.length > 50 ? "...": "" }}</td>
+                        <td>
                             <a href="#/users/{{ user.id }}" title="View User Profile" class="btn btn-default btn-xs">
                                 <span class="fa fa-eye"></span>
                             </a>
                             <a ng-click="removeUser($index, user.id)" title="Delete User" class="btn btn-danger btn-xs">
                                 <span class="fa fa-trash-o"></span>
                             </a>
-</td>
-        </tr>
-      </tbody>
-    </table>
-</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
