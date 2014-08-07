@@ -3,6 +3,10 @@
         <h1 class="text-center">Manage Images</h1>
     </div>
     <div class="col-sm-6 col-sm-offset-3">
+        <div class="alert alert-dismissable alert-danger text-center" ng-class="{flash: flashMsg}">
+            <button class="close" type="button" ng-click="closeAlert()">×</button>
+            <strong>{{ flashMsg }}!</strong>
+        </div>
         <div class="panel panel-info">
             <div class="panel-heading">
                 <h3 class="panel-title">For Now you just able to delete images</h3>
