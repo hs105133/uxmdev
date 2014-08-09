@@ -34,6 +34,13 @@ Back-end is responsible for providing RESTFUL API's nothing more than that,
 2. Express
 3. MongoDB
 
+#### Admin Section
+
+Only admin user able to do some destructive operation!
+
+![Admin Section](https://raw.githubusercontent.com/hs105133/uxmdev/master/public/app/images/admin-cover.png)
+
+
 ## Get Started
 
 Here is the step by step solution to get started with this app [Create Presentation Demo](http://uxm.herokuapp.com/#/covers/b4e5a6f8746799d4)
@@ -107,6 +114,7 @@ gulp
 7. Registered user have ton of features...
     - they can CRUD their profiles
     - they can do CRUD with presentation 
-8. Admin users able to manage other users, images etc.    
+8. Only admin users able to delete all covers, slides, users and comments.    
+9. Github documentation http://hs105133.github.io/uxmdev/
 
     
