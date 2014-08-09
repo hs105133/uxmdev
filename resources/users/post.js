@@ -1,5 +1,4 @@
-this.profilepic = "http://placekitten.com/250/200";
-console.log(me);
+this.profilepic = "http://lorempixel.com/250/200/sports";
 if(!this.role){
  this.role = "User";   
 }

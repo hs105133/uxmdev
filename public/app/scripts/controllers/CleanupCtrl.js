@@ -26,4 +26,7 @@ angular.module('techmApp').controller('CleanupCtrl', function($scope, $rootScope
     $scope.removeAllComments = function() {
         removeAllResource('/comments/?{"id": {"$ne": "424576eafc51bbea" }}', "You have successfully deleted all comments")
     };
+    $scope.removeAllImages = function(){
+        removeAllResource('/upload/?{"id": {"$ne": "3b9efbcefeb51872" }}', "You have successfully deleted all images");
+    };
 });
