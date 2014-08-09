@@ -5,8 +5,9 @@
         </div>
         
         <div class="panel panel-info">
-            <div class="panel-heading">
-                <h3 class="panel-title">Sign Up Now</h3>
+            <div class="panel-heading" >
+                <h3 class="panel-title" ng-if="$path() !== '/add-admin'">Sign Up Now</h3> 
+                <h3 class="panel-title" ng-if="$path() === '/add-admin'">Add Admin User</h3> 
             </div>
             <div class="panel-body">
                 <form class="form-horizontal" ng-submit="register()" name="signupForm" novalidate>
@@ -53,15 +54,14 @@
                     <div class="form-group formFooter">
                         <div class="col-sm-12">
                             <div class="pull-left">
-                                <button class="btn btn-success" ng-disabled="signupForm.$invalid">Sign up</button>	
+                                <button class="btn btn-default" ng-if="$path() !== '/add-admin'" ng-disabled="signupForm.$invalid">Sign up</button>  
+                                <button class="btn btn-default" ng-if="$path() === '/add-admin'" ng-disabled="signupForm.$invalid">Add Admin</button>	
                             </div>
                             <div class="pull-right">
                                 <a class="btn btn-link" ng-href="{{referrer}}" href="#/">Cancel</a>
                             </div>
                         </div>
-
                     </div>
-
                 </form>
         </div>
     </div>

@@ -1,0 +1,68 @@
+<div id="cleanup">
+    <div class="col-sm-12">
+        <h1 class="text-center">Presentation Cleanup</h1>
+    </div>
+    <div class="col-sm-6 col-sm-offset-3">
+        <div class="alert {{ alertClass }}" ng-class="{flash: flashMsg}">
+            <button ng-click="closeAlert()" class="close" type="button">×</button>
+            <strong>{{ flashMsg }}!</strong>
+        </div>
+        <div class="panel panel-warning">
+            <div class="panel-heading">
+                <h3 class="panel-title">Do some presentation cleanup</h3>
+            </div>
+
+            <ul class="list-group">
+                <li class="list-group-item">
+
+                    <div class="media cover">
+                        <div class="pull-right">
+                            <a class="btn btn-danger btn-xs" title="Remove useless users" ng-click="removeAllUsers()" href="">
+                                <span class="fa fa-trash-o"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p>Remove all user</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media cover">
+                        <div class="pull-right">
+                            <a class="btn btn-danger btn-xs" title="Remove all covers" ng-click="removeAllCovers()" href="">
+                                <span class="fa fa-trash-o"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p>Remove all covers</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media cover">
+                        <div class="pull-right">
+                            <a class="btn btn-danger btn-xs" title="Remove all slides" ng-click="removeAllSlides()" href="">
+                                <span class="fa fa-trash-o"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p>Remove all slides</p>
+                        </div>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="media cover">
+                        <div class="pull-right">
+                            <a class="btn btn-danger btn-xs" title="Remove all comments" ng-click="removeAllComments()" href="">
+                                <span class="fa fa-trash-o"></span>
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <p>Remove all comments</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

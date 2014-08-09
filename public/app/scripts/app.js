@@ -55,6 +55,11 @@ angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource'
             controller: 'RegisterCtrl',
             title: 'Signup Form'
         })
+        .when('/add-admin', {
+            templateUrl: 'views/signup.html',
+            controller: 'RegisterCtrl',
+            title: 'Add Admin User'
+        })
         .when('/myprofile', {
             templateUrl: 'views/myprofile.html',
             title: 'User Profile',
@@ -70,6 +75,12 @@ angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource'
             templateUrl: 'views/manage-cover.html',
             title: 'All Presentation Cover',
             controller: 'UserCoversCtrl',
+            requiredLogin: true
+        })
+        .when('/cleanup', {
+            templateUrl: 'views/cleanup.html',
+            title: 'Cleanup Presentation',
+            controller: 'CleanupCtrl',
             requiredLogin: true
         })
         .when('/edit-profile', {

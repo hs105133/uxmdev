@@ -39,6 +39,7 @@
     "app/scripts/controllers/MyCoversCtrl.js",
     "app/scripts/controllers/UsersCtrl.js",
     "app/scripts/controllers/ManageUsersCtrl.js",
+    "app/scripts/controllers/CleanupCtrl.js",
     "app/scripts/directives/confirmPassword.js",
     "app/scripts/directives/selectOnClick.js",
     "app/scripts/directives/showonhoverparent.js",

@@ -1,19 +1,28 @@
 <div id="dashboard" class="mTop">
     <div class="col-sm-6">
-        <div class="panel panel-info">
+        <div class="panel panel-warning">
             <div class="panel-heading">
-                <a href="#/covers">
-                    <h2 class="panel-title"><i class="fa fa-star"></i> All Presentation</h2>
-                </a>                
+                <a href="#/create-cover">
+                    <h2 class="panel-title"><i class="fa fa-plus"></i> Create Presentation</h2>
+                </a>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
-        <div class="panel panel-success">
+        <div class="panel panel-secondary">
             <div class="panel-heading">
-                <a href="#/mycovers">
-                    <h2 class="panel-title"><i class="fa fa-bullhorn"></i> Presentation By You</h2>
-                </a>                
+                <a href="#/addslide">
+                    <h2 class="panel-title"><i class="fa fa-plus"></i> Create Slide</h2>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <a href="#/covers">
+                    <h2 class="panel-title"><i class="fa fa-star"></i> All Presentation</h2>
+                </a>
             </div>
         </div>
     </div>
@@ -22,16 +31,25 @@
             <div class="panel-heading">
                 <a href="#/users">
                     <h2 class="panel-title"><i class="fa fa-users"></i> All Available Users</h2>
-                </a>                
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <a href="#/mycovers">
+                    <h2 class="panel-title"><i class="fa fa-bullhorn"></i> Presentation By You</h2>
+                </a>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <a href="#/create-cover">
-                    <h2 class="panel-title"><i class="fa fa-plus"></i> Create Presentation</h2>
-                </a>                
+                <a href="#/manage-covers">
+                    <h2 class="panel-title"><i class="fa fa-edit"></i> Manage Presentation</h2>
+                </a>
             </div>
         </div>
     </div>
@@ -40,17 +58,60 @@
             <div class="panel-heading">
                 <a href="#/myprofile">
                     <h2 class="panel-title"><i class="fa fa-user"></i> My Profile</h2>
-                </a>                
+                </a>
             </div>
         </div>
     </div>
     <div class="col-sm-6">
         <div class="panel panel-secondary">
             <div class="panel-heading">
-                <a href="#/manage-images">
-                    <h2 class="panel-title"><i class="fa fa-file-image-o"></i> Manage Images</h2>
-                </a>                
+                <a href="#/edit-profile">
+                    <h2 class="panel-title"><i class="fa fa-pencil"></i> Edit Profile</h2>
+                </a>
             </div>
         </div>
     </div>
+    <div id="adminSection" ng-if="currentUser.role === 'Admin'">
+        <div class="col-sm-12">
+            <h2 class="text-center">Admin Section</h2>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <a href="#/add-admin">
+                        <h2 class="panel-title"><i class="fa fa-plus"></i> Add Admin User</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <a href="#/manage-images">
+                        <h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Manage Images</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <a href="#/manage-users">
+                        <h2 class="panel-title"><i class="glyphicon glyphicon-edit"></i> Manage User</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a href="#/cleanup">
+                        <h2 class="panel-title"><i class="fa fa-eraser"></i> Presentation Cleanup</h2>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>

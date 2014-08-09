@@ -15,7 +15,7 @@
                     <div class="media-body">
                         <h4 class="media-heading">
                             <a href="#/users/{{user.id}}">{{user.username}}</a>
-                            <span class="pull-right label label-info">{{user.role}}</span>
+                            <span class="pull-right label" ng-class="{'label-success': user.role === 'Admin', 'label-info': user.role === 'User'}">{{user.role}}</span>
                         </h4>
                         <p>{{user.aboutme}}</p>
 

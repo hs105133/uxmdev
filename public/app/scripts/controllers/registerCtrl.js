@@ -11,6 +11,9 @@ angular.module('techmApp').controller('RegisterCtrl', function($scope, $rootScop
 
     $scope.register = function() {
         $scope.$parent.flashMsg = false;
+        if($location.path() === '/add-admin'){
+             $scope.formData.role = "Admin";
+        }
         UserService.user().save($scope.formData, function(userData) {
 
             UserService.logIn($scope.formData).success(function(res, error) {
@@ -21,7 +24,7 @@ angular.module('techmApp').controller('RegisterCtrl', function($scope, $rootScop
             });
 
         }, function(res) {
-            $scope.$parent.flashMsg = "Username is already in use";
+            $scope.$parent.flashMsg = res.data.errors ? "Username is already in use" : res.data.message;
         });
 
     };
