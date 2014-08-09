@@ -44,29 +44,10 @@ angular.module('techmApp').factory('UserService', function($http, $resource, $ro
                 }
             });
         },
-        deleteAllCovers: function(){
+        deleteAllResource: function(url){
             return $http({
                 method: "DELETE",
-                url: '/covers/?{"id": {"$ne": "701e275088775a60" }}' // except sample cover prod
-            });
-        },
-        deleteAllSlides: function(){
-            return $http({
-                method: "DELETE",
-                // except sample slides prod
-                url: '/slides?{"id": {"$nin": ["f474392b42557a3d", "641dffbc4b5b0822", "4823697b6f0f5969","2343e21f82a7f8f6", "c1c2e96523e95b8e", "b1363ceaa4457880","536b7a07f622c83b", "c88407f53aaca8ec", "f7d5f2d58781bb67", "6b94547159e4cacc", "406d5442b91298a8", "db78ea09567aeb16", "bdebda8ecbcf78e3", "656d56df7d6bc8aa", "46ab57e9850afa00", "77816dd99692898c", "5412e831b6774a1a", "7e29cc1ff67a7b5d", "8610331aa488faa6", "d119de7d111998b0", "20510cc41dc1482b", "abacb1eece29c998"]}}'
-            });
-        },
-        deleteAllUsers: function(){
-            return $http({
-                method: "DELETE",
-                url: '/users/?{"id": {"$ne": "a754bf24905e7859" }}'  // except main admin prod
-            });
-        },
-        deleteAllComments: function(){
-            return $http({
-                method: "DELETE",
-                url: '/comments/?{"id": {"$ne": "424576eafc51bbea" }}'  // except main admin comment prod
+                url: url // except sample cover prod
             });
         },
         comments: function() {

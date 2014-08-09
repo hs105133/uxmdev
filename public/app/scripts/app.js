@@ -130,13 +130,13 @@ angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource'
         }, 1);
     };
 })
-.run(function($rootScope, $location, $route, AuthenticationService, $window) {
+.run(function( $rootScope, $location, $route, AuthenticationService, $window) {
     $rootScope.location = $window.location;
-    $rootScope.flashMsg = false;
     $rootScope.isViewLoading = false;
 
     $rootScope.$on('$routeChangeStart', function(event, nextRoute, currentRoute) {
         $rootScope.isViewLoading = true;
+        $rootScope.$broadcast('resetFlag');
         if (nextRoute.requiredLogin && !$window.sessionStorage.token) {
             $location.path('/login');
         } else {
