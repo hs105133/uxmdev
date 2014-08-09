@@ -1,5 +1,5 @@
 <div class="formWrapper center-block">
-        <div class="alert alert-dismissable alert-danger" ng-class="{flash: flashMsg}">
+        <div class="alert alert-dismissable {{ alertClass }}" ng-class="{flash: flashMsg}">
             <button class="close" type="button" ng-click="closeAlert()">×</button>
             <strong>{{ flashMsg }}!</strong>
         </div>
