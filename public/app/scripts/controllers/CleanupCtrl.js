@@ -10,7 +10,7 @@ angular.module('techmApp').controller('CleanupCtrl', function($scope, $rootScope
             $scope.alertClass = "alert-danger";
             $scope.$parent.flashMsg = res.message;
         });
-    };    
+    }   
 
     $scope.removeAllCovers = function() {
         removeAllResource('/covers/?{"id": {"$ne": "701e275088775a60" }}', "You have successfully deleted all covers");
@@ -24,9 +24,9 @@ angular.module('techmApp').controller('CleanupCtrl', function($scope, $rootScope
         removeAllResource('/users/?{"id": {"$ne": "a754bf24905e7859" }}', "You have successfully deleted all users");
     };
     $scope.removeAllComments = function() {
-        removeAllResource('/comments/?{"id": {"$ne": "424576eafc51bbea" }}', "You have successfully deleted all comments")
+        removeAllResource('/comments/?{"id": {"$ne": "424576eafc51bbea" }}', "You have successfully deleted all comments");
     };
     $scope.removeAllImages = function(){
-        removeAllResource('/upload/?{"id": {"$ne": "3b9efbcefeb51872" }}', "You have successfully deleted all images");
+        removeAllResource('/upload/?{"id": {"$ne": "a0e69ddf87bec906" }}', "You have successfully deleted all images");
     };
 });
