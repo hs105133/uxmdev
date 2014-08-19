@@ -6,8 +6,9 @@
   "author": "",
   "license": "BSD-2-Clause",
   "dependencies": {
-    "mongodb": "~1.4.2",
-    "deployd": "~0.6.10",
-    "dpd-fileupload": "0.0.10"
+    "dpd-fileupload": "0.0.10",
+    "mongodb": "~1.4.8",
+    "deployd": "~0.7.0",
+    "dpd-express": "0.0.1"
   }
 }
