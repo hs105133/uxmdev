@@ -85,21 +85,10 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScop
         if(quickMode){
             $scope.images = [];
         }
-       
+        
         $scope.upload = $upload.upload({
-            url: "/upload?subdir=images", //upload.php script, node.js route, or servlet url
-
-            // method: 'POST' or 'PUT',
-            // headers: {'header-key': 'header-value'},
-            // withCredentials: true,
-            // data: {
-            //     myObj: $scope.myModelObj
-            // },
-            file: $scope.selectedFiles[index], // or list of files: $files for html5 only
-            /* set the file formData name ('Content-Desposition'). Default is 'file' */
-            //fileFormDataName: myFile, //or a list of names for multiple files (html5).
-            /* customize how data is added to formData. See #40#issuecomment-28612000 for sample code */
-            //formDataAppender: function(formData, key, val){}
+            url: "/upload?subdir=images&uniqueFilename=true",
+            file: $scope.selectedFiles[index]
         }).progress(function(evt) {
             $scope.progress[index] = 0;
             $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
