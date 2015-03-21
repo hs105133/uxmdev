@@ -12,7 +12,7 @@
         </h3>
         <ul id="menu-toc" class="menu-toc list-group">
             <li ng-repeat="slide in slides | orderBy:'createdOn'" ng-class="{'menu-toc-current':$first}">
-                <a href="#item{{$index + 1}}">{{ slide.header }}</a>
+                <a href="#item{{$index + 1}}">{{ slide.header || "Slide "+($index+1) }}</a>
             </li>
         </ul>
     </div>
@@ -37,7 +37,7 @@
         <div id="bb-bookblock" class="bb-bookblock">
             <div class="bb-item" id="item{{$index + 1}}" ng-repeat="slide in slides | orderBy:'createdOn'" on-last-repeat>
                 <div class="content">
-                    <div class="row">
+                    <div class="row" ng-if="slide.header">
                         <h2 class="col-sm-12">{{ slide.header }}</h2>
                     </div>
 

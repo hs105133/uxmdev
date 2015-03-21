@@ -68,20 +68,24 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScop
 
     resetItems();
 
-    $scope.onFileSelect = function(files) {
+    $scope.onFileSelect = function(files, quickMode) {
         $scope.selectedFiles = files;
         $scope.progress = [];
         //$files: an array of files selected, each file has name, size, and type.
         for (var i = 0; i < files.length; i++) {
             var file = files[i];
             $scope.progress[i] = -1;
-            $scope.start(i);
+            $scope.start(i, quickMode);
         }
 
     };
 
-    $scope.start = function(index) {
+    $scope.start = function(index, quickMode) {
         $scope.progress[index] = 0;
+        if(quickMode){
+            $scope.images = [];
+        }
+       
         $scope.upload = $upload.upload({
             url: "/upload?subdir=images", //upload.php script, node.js route, or servlet url
 
@@ -101,7 +105,16 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScop
             $scope.progress[index] = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
         }).success(function(data, status, headers, config) {
             // file is uploaded successfully
+            
             $scope.formData.src = "store/images/" + data[0].filename;
+
+            if(quickMode){
+                $scope.addSlides();
+                $scope.images[index] = "store/images/" + data[0].filename;
+            }
+                                
+            
+            
         });
     };
 
@@ -120,7 +133,7 @@ angular.module('techmApp').controller('addSlideCtrl', function($scope, $rootScop
 
 
     $scope.imgListStart = function(index, imgIndex, imgListIndex) {
-        console.log(imgIndex, imgListIndex);
+
         $scope.formData.imageList[imgListIndex].progress1[index] = 0;
         $scope.upload = $upload.upload({
             url: "/upload?subdir=images",

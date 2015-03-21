@@ -1,0 +1,53 @@
+<div id="addSlide" class="col-sm-8 col-sm-offset-2">
+
+
+    <h1 class="text-center">Add Slide Quickly</h1>
+    <p class="text-center"><small>upload images to create slide quickly</small>
+    </p>
+
+    <div class="alert alert-success" ng-class="{flash: flashMsg}">
+        <button ng-click="closeAlert()" class="close" type="button">×</button>
+        <strong>Well done!</strong>You successfully added new slide <a class="alert-link" href="#/covers/{{presentationId}}"> view presentation</a>.
+    </div>
+    <form id="addSlidesForm" name="addSlidesForm" method="post" ng-submit="addSlides()" novalidate>
+        <fieldset>
+            <legend>
+                <span class="fa fa-info-circle"></span> Basic Information</legend>
+            <div id="slideWrapper">
+                <div class='form-group'>
+                    <label for="title">Select Presentation</label>
+
+                    <select class="form-control" name="coverId" ng-model="formData.coverId" ng-options="obj.id as obj.title for obj in covers" required ng-change="updateCoverRoute(formData.coverId)">
+                        <option value="">-- choose cover --</option>
+                    </select>
+
+                    <p class="help-block text-success" ng-show="addSlidesForm.coverId.$valid">
+                        <strong>Good!</strong>You able to create slide now.</p>
+                    <p class="help-block text-danger" ng-show="addSlidesForm.coverId.$error.required">
+                        <strong>Required!</strong>You need to select this to create slide.</p>
+                </div>
+                <div class='form-group' ng-show="formData.coverId">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="drop-box" ng-file-drop="onFileSelect($files, 'quick');" ng-file-drag-over-class="dragover">
+                                <input id="src" name="src" class="center-block" ng-file-select="onFileSelect($files,'quick')" type="file" multiple />
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 mTop" ng-show="selectedFiles != null" ng-repeat="f in selectedFiles">
+                            <div class="thumbnail">
+                                <img class="img-responsive" ng-src="{{images[$index]}}" />
+                                <div class="caption" class="progress active" ng-show="progress[$index] >= 0">
+                                    <div class="progress-bar" style="width:{{progress[$index]}}%">{{progress[$index]}}%</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </fieldset>
+
+        <div class="form-group formFooter">
+            <a href="#/" class="btn btn-default">Back to Dashboard</a>
+        </div>
+    </form>
+</div>

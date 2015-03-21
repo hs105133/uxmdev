@@ -37,9 +37,9 @@ gulp.task('html', ["htmlreplace"], function() {
 
 gulp.task('less', function () {
     return gulp.src(lessSrc) // path to your file
-    .pipe(sourcemaps.init())
+    // .pipe(sourcemaps.init())
     .pipe(less())
-    .pipe(sourcemaps.write())
+    // .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/.temp/'));
 });
 

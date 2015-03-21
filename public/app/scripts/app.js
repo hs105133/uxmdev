@@ -40,6 +40,12 @@ angular.module('techmApp', ['ui.bootstrap', 'ngRoute', 'ngAnimate', 'ngResource'
             title: 'Add Slide',
             reloadOnSearch: false
         })
+        .when('/quickslide/:coverId?', {
+            templateUrl: 'views/quickslide.html',
+            controller: 'addSlideCtrl',
+            title: 'Add Slide Quickly',
+            reloadOnSearch: false
+        })
         .when('/users', {
             templateUrl: 'views/users.html',
             controller: 'UsersCtrl',
